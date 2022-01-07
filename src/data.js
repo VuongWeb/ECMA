@@ -1,5 +1,5 @@
-const listMenu = ["Trang chủ", "Tuyển sinh", "Chương trình đào tạo", "Góc sinh viên", "Tuyển dụng"];
-const listPost = [
+export const listMenu = ["Trang chủ", "Tuyển sinh", "Chương trình đào tạo", "Góc sinh viên", "Tuyển dụng"];
+export const listPost = [
     {
         img: "https://picsum.photos/300/200",
         title: "Vinh danh 295 sinh viên Fpoly học kỳ Spring 2018",
