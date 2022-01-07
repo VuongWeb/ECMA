@@ -46,7 +46,7 @@
 }
 
 .col{
-    @apply border border-red-600 p-6 text-left hover: border-red-900; 
+    @apply border border-red-600 p-6 text-left; 
 }
 
 .title_content{
