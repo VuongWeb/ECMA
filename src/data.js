@@ -1,4 +1,25 @@
-export const listMenu = ["Trang chủ", "Tuyển sinh", "Giới thiệu", "Góc sinh viên", "Tuyển dụng"];
+export const listMenu = [
+    {
+        name: "Trang chủ",
+        link:""
+    },
+    {
+        name: "Tuyển sinh",
+        link:"about"
+    },
+    {
+        name: "Tin tức",
+        link:"about"
+    },
+    {
+        name: "Góc sinh viên ",
+        link:"about"
+    },
+    {
+        name: "Tuyển dụng",
+        link:"about"
+    },
+];
 export const listPost = [
     {
         img: "https://picsum.photos/300/200",
