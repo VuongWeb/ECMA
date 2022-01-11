@@ -13,11 +13,11 @@ export const listMenu = [
     },
     {   
         name: "Góc sinh viên ",
-        link:"about"
+        link:"news"
     },
     {   
         name: "Tuyển dụng",
-        link:"about"
+        link:"abc"
     },
 ];
 export const listPost = [

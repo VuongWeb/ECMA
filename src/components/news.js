@@ -2,7 +2,7 @@ import { listPost } from "../data";
 const Main ={
     render (){
         return /* html */ `
-        <div class="grid grid-cols-3 gap-8">
+        <div class="grid grid-cols-3 gap-8 mb-8">
             ${listPost.map((post) => `
                 <div class="border p-4">
                     <a href="/news/${post.id}">
