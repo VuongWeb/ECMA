@@ -14,7 +14,7 @@ const Main ={
             `).join("")}
             
         </div>
-        `;
+        `;  
     }
 }
 export default Main;
