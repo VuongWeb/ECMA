@@ -4,10 +4,6 @@ export const listMenu = [
         link:""
     },
     {   
-        name: "Tuyển sinh",
-        link:"about"
-    },
-    {   
         name: "Tin tức",
         link:"news"
     },
@@ -18,6 +14,10 @@ export const listMenu = [
     {   
         name: "Đăng nhập",
         link:"signin"
+    },
+    {   
+        name: "Đăng ký",
+        link:"signup"
     },
 ];
 export const listPost = [

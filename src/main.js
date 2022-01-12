@@ -10,6 +10,8 @@ import AdminDashBroad from "./page/adminDashBoard";
 import ListNewsAdmin from "./page/ListNewsAdmin";
 import AddPostAdminPage from "./page/addPostPage";
 import EditPostPage from "./page/editPostPage";
+import SignIn from "./page/signin";
+import SignUp from "./page/signup";
 
 const router = new Navigo('/', { linksSelector: 'a' });
 
@@ -35,9 +37,6 @@ router.on({
     "": () => {
         print(HomePage.render());
     },
-    "/about": () => {
-        print(AboutPage.render());
-    },
     "/news": () => {
         print(NewsPage.render());
     }, 
@@ -58,6 +57,13 @@ router.on({
         const { id } =data;
         printAdmin(EditPostPage.render(id));
     },
+    "/signin": () => {
+        printAdmin(SignIn.render());
+    },
+    "/signup": () => {
+        printAdmin(SignUp.render());
+    },
+    
 
 });
 router.resolve();
