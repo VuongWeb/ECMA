@@ -12,12 +12,12 @@ export const listMenu = [
         link:"news"
     },
     {   
-        name: "Góc sinh viên ",
-        link:"news"
+        name: "Admin",
+        link:"admin"
     },
     {   
-        name: "Tuyển dụng",
-        link:"abc"
+        name: "Đăng nhập",
+        link:"signin"
     },
 ];
 export const listPost = [

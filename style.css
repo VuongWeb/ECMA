@@ -57,7 +57,7 @@
     @apply text-black;  
 }
 
-footer{
+.footer{
     @apply bg-[#272f54] p-3 text-center;
 }
 

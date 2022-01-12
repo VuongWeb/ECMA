@@ -1,6 +1,3 @@
-import Header from "./../components/header"
-import Footer from "../components/footer"
-import Banner from "../components/banner";
 import Main from "../components/news";
 const HomePage = {
     render() {
