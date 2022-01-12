@@ -9,7 +9,7 @@ const Header = {
         </div>
         <div class="header_main">
             ${Menu.render()}
-            <form action="" class="my-3 ml-9 ml-4" >
+            <form action="" class="my-3 ml-32" >
             <input type="text" class="input_text">
             <button class="btn">Tìm kiếm</button>
         </form>
