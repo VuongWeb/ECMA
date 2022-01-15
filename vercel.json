@@ -13,22 +13,6 @@
             "dest": "/"
         },
         {
-            "src": "/admissions",
-            "dest": "/"
-        },
-        {
-            "src": "/training-program",
-            "dest": "/"
-        },
-        {
-            "src": "/student-corner",
-            "dest": "/"
-        },
-        {
-            "src": "/recruitment",
-            "dest": "/"
-        },
-        {
             "src": "/signin",
             "dest": "/"
         },
@@ -37,23 +21,19 @@
             "dest": "/"
         },
         {
-            "src": "/admin/dashboard",
+            "src": "/admin/editpost/(.*)",
             "dest": "/"
         },
         {
-            "src": "/admin/news",
+            "src": "/listpost",
             "dest": "/"
         },
         {
-            "src": "/admin/news/add",
+            "src": "/addpost",
             "dest": "/"
         },
         {
-            "src": "/admin/news/(.*)/edit",
-            "dest": "/"
-        },
-        {
-            "src": "/search",
+            "src": "/admin",
             "dest": "/"
         }
     ]
