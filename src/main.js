@@ -2,7 +2,6 @@ import Navigo from "navigo";
 import Banner from "./components/banner";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import AboutPage from "./page/about";
 import HomePage from "./page/home";
 import NewsPage from "./page/newsPage";
 import DetailNewsPage from "./page/detailNews";
