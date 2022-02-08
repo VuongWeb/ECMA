@@ -1,8 +1,12 @@
-import { listPost } from "../data";
+// import { listPost } from "../data";
+
+import { getAll } from "../api/product";
+
 
 const PostAdmin = {
-  render() {
-    return  `
+  async render() {
+    const { data } = await getAll();
+    return  /*html*/ `
         <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <h1 class="text-3xl font-bold text-gray-900">
@@ -24,10 +28,13 @@ const PostAdmin = {
           <thead class="bg-gray-50">
             <tr>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Name
+                STT
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Title
+                Ảnh sản phẩm
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Tên
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Sửa
@@ -37,9 +44,16 @@ const PostAdmin = {
               </th>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-            ${listPost.map((post) => {
-                return `
+            ${data.map((post, index) => {
+      return /*html */`
                 <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-10 w-10">
+                      ${index + 1}
+                    </div>
+                  </div>
+                </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="flex-shrink-0 h-10 w-10">
@@ -48,17 +62,23 @@ const PostAdmin = {
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">${post.title}</div>
+                  <div class="text-sm text-gray-900">${post.name}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <a href="/editpost/${post.id}"><div class="text-sm text-gray-900 bg-blue-500 pl-5 rounded-xl text-[#fff]">Sửa</div></a>
+                  <a href="/editpost/${post.id}"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg></a>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <a href="/delete/${post.id}"><div class="text-sm text-gray-900 bg-red-500 pl-5 rounded-xl text-[#fff]">Xóa</div></a>
+                  <button data-id=${post.id} class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
+                    </svg>
+                  </button>
                 </td>
               </tr>
                 `
-             }).join("")}
+    }).join("")}
           </tbody>
         </table>
       </div>
@@ -78,8 +98,13 @@ const PostAdmin = {
         </div>
       </main>
     </div>
-        `;
+        `
+  },
+   afterRender() {
+    const btns = document.querySelectorAll('.button');
+    console.log(btns);
   }
 }
+
 
 export default PostAdmin;

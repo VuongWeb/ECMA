@@ -1,13 +1,12 @@
 import Main from "../components/news";
 
 const NewsPage = {
-    render() {
-        return `
+    async render() {
+         return `
         <h1 class="text-center py-4 text-4xl font-medium">Tin tức</h1>
 
-                ${Main.render()}
+                ${await Main.render()}
         
-                ${Main.render()}
         `}
 }
 

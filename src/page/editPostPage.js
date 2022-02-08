@@ -1,9 +1,10 @@
 import HeaderAdmin from "../components/headerAdmin";
-import { listPost } from "../data";
+import { get } from "../api/product";
 
 const EditPostPage={
-    render(id){
-        const result = listPost.find((post) => post.id === id)
+    async render(id){
+      const {data} = await get(id);
+        // const result = await response.json();
         return /* html */`
         ${HeaderAdmin.render()}
         <header class="bg-white shadow">
@@ -27,24 +28,24 @@ const EditPostPage={
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 ">
                 <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                <input type="text" name="title" id="title"  value="${result.title}" autocomplete="given-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md">
+                <input type="text"  id="title"  value="${data.name}" autocomplete="given-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md">
               </div>
 
               <div class="col-span-6 ">
                 <label for="img" class="block text-sm font-medium text-gray-700">Img(url)</label>
-                <img src="${result.img}" />
-                <input type="text" name="title" id="title"  value="${result.img}" autocomplete="given-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md">
+                <img src="${data.img}" width="200"  />
+                <input type="text"  id="title"  value="${data.img}" autocomplete="given-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md">
               </div>
 
               <div class="col-span-6 ">
-                <label for="img" class="block text-sm font-medium text-gray-700">Description</label>
-                <input type="text" name="img" id="desc"   value="${result.content}" autocomplete="family-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md">
+                <label for="img" class="block text-sm font-medium text-gray-700">Price</label>
+                <input type="text"  id="price"   value="${data.Price}" autocomplete="family-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md">
               </div>
             </div>
 
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button type="submit"  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Update
             </button>
           </div>
@@ -58,7 +59,8 @@ const EditPostPage={
           <!-- /End replace -->
         </div>
       </main>
-        `;
+        `
+        ;
     }
 }
 

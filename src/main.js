@@ -7,60 +7,62 @@ import NewsPage from "./page/newsPage";
 import DetailNewsPage from "./page/detailNews";
 import AdminDashBroad from "./page/adminDashBoard";
 import ListNewsAdmin from "./page/ListNewsAdmin";
-import AddPostAdminPage from "./page/addPostPage";
 import EditPostPage from "./page/editPostPage";
 import SignIn from "./page/signin";
 import SignUp from "./page/signup";
+import AddPostAdmin from "./components/addpostAdmin";
 
-const router = new Navigo('/', { linksSelector: 'a' });
+const router = new Navigo('/', { linksSelector: 'a', hash :true });
 
-const print = (content) => {
+const  print = async (content,id) => {
     document.querySelector("#header").innerHTML = Header.render();
     document.querySelector("#banner").innerHTML = Banner.render();
-    document.querySelector("#app").innerHTML = content;
+    document.querySelector("#app").innerHTML = await content.render(id);
     document.querySelector("#footer").innerHTML = Footer.render();
+    if(content.afterRender) content.afterRender();
+
 }
 
-const printAdmin = (admin)=>{   
+const  printAdmin = async (admin,id)=>{   
     document.querySelector("#header").innerHTML = '';
     document.querySelector("#banner").innerHTML = '';
-    document.querySelector("#app").innerHTML = admin;
+    document.querySelector("#app").innerHTML =await admin.render(id);
     document.querySelector("#footer").innerHTML = '';
+    if(admin.afterRender) admin.afterRender();
 
 }
 
 router.on({
     "/": () => {
-        print(HomePage.render());
+        print(HomePage);
     },
     "": () => {
-        print(HomePage.render());
+        print(HomePage);
     },
     "/news": () => {
-        print(NewsPage.render());
+        print(NewsPage);
     }, 
-    "/news/:id": ({ data }) => {
-        const { id } = data;
-        print(DetailNewsPage.render(id));
+    "/news/:id": (value) => {
+        // const { id } = data;
+        print(DetailNewsPage, value.data.id);
     }, 
     "/admin": () => {
-        printAdmin(AdminDashBroad.render());
+        printAdmin(AdminDashBroad);
     },
     "/listpost": () => {
-        printAdmin(ListNewsAdmin.render());
+        printAdmin(ListNewsAdmin);
     },
     "/addpost": () => {
-        printAdmin(AddPostAdminPage.render());
+        printAdmin(AddPostAdmin);
     },
-    "/editpost/:id": ({data}) => {
-        const { id } =data;
-        printAdmin(EditPostPage.render(id));
+    "/editpost/:id": (value) => {
+        printAdmin(EditPostPage,value.data.id);
     },
     "/signin": () => {
-        printAdmin(SignIn.render());
+        printAdmin(SignIn);
     },
     "/signup": () => {
-        printAdmin(SignUp.render());
+        printAdmin(SignUp);
     },
     
 

@@ -1,0 +1,53 @@
+{
+  "pro": [
+    {
+      "createdAt": "2022-01-19T07:35:35.945Z",
+      "name": "Áo phông -Tộc Trưởng",
+      "Price": "250000",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Mixi3853-scaled.jpg",
+      "id": "1"
+    },
+    {
+      "createdAt": "2022-01-19T07:35:35.945Z",
+      "name": "Áo phông -Tộc Trưởng",
+      "Price": "250000",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/ao-phong-mixi-trang-scaled.jpg",
+      "id": "2"
+    },
+    {
+      "createdAt": "2022-01-19T07:35:35.945Z",
+      "name": "Áo phông Mixi Phòng Stream",
+      "Price": "250000",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Ao-phong-Mixi-Phong-Stream-scaled.jpg",
+      "id": "3"
+    },
+    {
+      "createdAt": "2022-01-19T07:35:35.945Z",
+      "name": "Áo phông -Tộc Trưởng",
+      "Price": "250000",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/ao-phong-mixi-trang-scaled.jpg",
+      "id": "4"
+    },
+    {
+      "createdAt": "2022-01-19T07:35:35.945Z",
+      "name": "Áo phông -Tộc Trưởng",
+      "Price": "250000",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Untitled-Capture1577-scaled.jpg",
+      "id": "5"
+    },
+    {
+      "createdAt": "2022-01-19T07:35:35.945Z",
+      "name": "Áo phông - Đen -Tộc Trưởng",
+      "Price": "250000",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2019/10/Untitled-Capture2553-scaled.jpg",
+      "id": "6"
+    },
+    {
+      "createdAt": "2022-01-19T07:35:35.945Z",
+      "name": "Áo phông Mixi - Trắng",
+      "Price": "250000",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/ao-phong-mixi-trang-scaled.jpg",
+      "id": "7"
+    }
+  ]
+}

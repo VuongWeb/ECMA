@@ -2,10 +2,10 @@ import HeaderAdmin from "../components/headerAdmin";
 import PostAdmin from "../components/PostAdmin";
 
 const ListNewsAdmin ={
-    render(){
+    async render(){
         return `
-        ${HeaderAdmin.render()}
-        ${PostAdmin.render()}
+        ${await HeaderAdmin.render()}
+        ${await PostAdmin.render()}
         `;
     }
 }
