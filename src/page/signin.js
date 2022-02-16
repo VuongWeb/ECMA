@@ -1,10 +1,13 @@
+import { signin } from "../api/user";
 import Footer from "../components/footer";
 import Header from "../components/header";
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 
 const SignIn = {
-    render(){
-        return `
-        ${Header.render()}
+  async render() {
+    return /*html*/ `
+        ${await Header.render()}
       <div class="min-h-full flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 ">
         <div class="max-w-md w-full space-y-8">
           <div>
@@ -19,7 +22,7 @@ const SignIn = {
               </a>
             </p>
           </div>
-          <form class="mt-8 space-y-6" action="#" method="POST">
+          <form class="mt-8 space-y-6" id="form-sigin">
             <input type="hidden" name="remember" value="true">
             <div class="rounded-md shadow-sm -space-y-px">
               <div>
@@ -61,9 +64,35 @@ const SignIn = {
           </form>
         </div>
       </div>
-        ${Footer.render()}
-        `
-    }
-}
+        ${await Footer.render()}
+        `;
+  },
+  afterRender() {
+    const formSigin = document.querySelector("#form-sigin");
+    formSigin.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      try {
+        const { data } = await signin({
+          email: document.querySelector("#email-address").value,
+          password: document.querySelector("#password").value,
+        });
+        if (data) {
+          localStorage.setItem("user", JSON.stringify(data.user));
+          toastr.success("Bạn đã đăng nhập thành công!");
+          setTimeout(() => {
+            // if (data.user.id == 1) {
+            //   document.location.href = "/admin";
+            // } else {
+            //   document.location.href = "/";
+            // }
+            document.location.href = "/";
+          },2000);
+        }
+      } catch (error) {
+        toastr.error(error.response.data);
+      }
+    });
+  },
+};
 
 export default SignIn;

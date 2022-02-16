@@ -1,11 +1,10 @@
 {
   "pro": [
     {
-      "createdAt": "2022-01-19T07:35:35.945Z",
-      "name": "Áo phông -Tộc Trưởng",
-      "Price": "250000",
-      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Mixi3853-scaled.jpg",
-      "id": "1"
+      "id": "1",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Ao-phong-Mixi-Phong-Stream-scaled.jpg",
+      "name": "Áo phông -Tộc Trưởng -abc",
+      "Price": "250000"
     },
     {
       "createdAt": "2022-01-19T07:35:35.945Z",
@@ -43,11 +42,43 @@
       "id": "6"
     },
     {
-      "createdAt": "2022-01-19T07:35:35.945Z",
-      "name": "Áo phông Mixi - Trắng",
-      "Price": "250000",
-      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/ao-phong-mixi-trang-scaled.jpg",
-      "id": "7"
+      "name": "Áo phông mixi ",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645020693/zwfuwulxeijwavm3agdj.jpg",
+      "Price": "120000",
+      "id": "mpoDnBN"
+    },
+    {
+      "name": "Áo phông -đen Mixi",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645020729/awsjjwjsyj0bjcqyr1jg.jpg",
+      "Price": "120000",
+      "id": "bFIrnhb"
+    }
+  ],
+  "users": [
+    {
+      "email": "vuongzxkk3@gmail.com",
+      "password": "$2a$10$QU0kOZA0nIWW4OBjm20ZCuB/bK.JRbb2CP.m4V/.ie99u0a7Lhhga",
+      "id": 1
+    },
+    {
+      "email": "vuonglv@fpt.edu.vn",
+      "password": "$2a$10$6yzy3V7D1mTBE.cZxFW0/u4bHE7GoUlyb3.5W5t.xKPQXDTgw7w.y",
+      "id": 2
+    },
+    {
+      "email": "longbd@gmail.com",
+      "password": "$2a$10$nf.qBGDswGKh8n6HOkxAoOiudLmROfdqUZGkhTKKAXixe0WDIOga2",
+      "id": 3
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$AaQ50tUc.NjneHaTKa94TuGeSxozDQv67XWk9fmVQQzpkqv/7nbM2",
+      "id": 4
+    },
+    {
+      "email": "1234@gmail.com",
+      "password": "$2a$10$7GQFs9ybJxPwM0DiTWiZ.u42jADNdHzT6EQSlukt888CikYB4UK6K",
+      "id": 5
     }
   ]
 }

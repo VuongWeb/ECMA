@@ -1,6 +1,7 @@
 import axios from "axios";
 import { add } from "../api/product";
-
+import toastr from "toastr";
+import "toastr/build/toastr.min.css"
 const AddPostAdmin = {
   render() {
     // console.log(document)
@@ -26,15 +27,13 @@ const AddPostAdmin = {
                               <label for="title" class="block text-sm font-medium text-gray-700">Name</label>
                               <input type="text"  id="name" autocomplete="given-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 border-2 rounded-md">
                             </div>
-
                             <div class="col-span-6 sm:col-span-3">
                               <label for="img" class="block text-sm font-medium text-gray-700">Img(url)</label>
                               <input type="file" id="img" autocomplete="family-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300  border-2 rounded-md">
                             </div>
-
                             <div class="col-span-6 sm:col-span-4">
                               <label for="description" class="block text-sm font-medium text-gray-700">Price</label>
-                              <input type="text" name="price" id="desc"  class=" p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border-2">
+                              <input type="text" name="price" id="price"  class=" p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border-2">
                             </div>
                           </div>
                         </div>
@@ -56,37 +55,40 @@ const AddPostAdmin = {
           <!-- /End replace -->
         </div>
       </main>
-        `
+        `;
   },
 
   afterRender() {
-    const formAdd = document.querySelector('#form-add-pro');
-    const imgPro = document.querySelector('#img');
-    imgPro.addEventListener("change", (e) => {
-      const file = e.target.files[0];
+    const formAdd = document.querySelector("#form-add-pro");
+    const imgPro = document.querySelector("#img");
+
+    const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/dkiw9eaeh/image/upload";
+    const COLUDINARY_PRESET = "wgapgiev";
+    
+    formAdd.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      const file = imgPro.files[0];
       const formData = new FormData();
       formData.append("file", file);
-      formData.append("upload_preset", "jkbdphzy");
+      formData.append("upload_preset",COLUDINARY_PRESET );
 
-      axios({
-        url: "https://api.cloudinary.com/v1_1/ecommercer2021/image/upload",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-formendcoded",
-        },
-        data: formData,
-      }).then((res) => {
-        formAdd.addEventListener('submit',(e)=>{
-          e.preventDefault();
-          add({
-            name:document.querySelector('#name').value,
-            img : document.querySelector('#img').value,
-            Price : document.querySelector('#price').value
-          })
-        })
+     await axios.post(CLOUDINARY_API,formData,{
+        headers:{
+          "Content-Type":"application/form-data"
+        }
+      }).then(response => {
+        const newPro = {
+          "name":document.querySelector('#name').value,
+          "img": response.data.url,
+          "Price":document.querySelector('#price').value
+        }
+        add(newPro);
+        toastr.success("Bạn đã thêm thành công !");
+        document.location.href="/admin/listpost";
+      })
       });
-    })
-  }
-}
+  },
+};
 
 export default AddPostAdmin;

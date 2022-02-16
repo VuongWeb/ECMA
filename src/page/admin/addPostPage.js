@@ -1,5 +1,5 @@
-import AddPostAdmin from "../components/addpostAdmin";
-import HeaderAdmin from "../components/headerAdmin";
+import AddPostAdmin from "../../components/addpostAdmin";
+import HeaderAdmin from "../../components/headerAdmin";
 
 const AddPostAdminPage ={
     render(){
@@ -7,6 +7,9 @@ const AddPostAdminPage ={
             ${HeaderAdmin.render()};
             ${AddPostAdmin.render()}
         `;
+    },
+    afterRender(){
+        AddPostAdmin.afterRender();
     }
 }
 export default AddPostAdminPage;

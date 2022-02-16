@@ -1,3 +1,4 @@
+import Header from "../components/header";
 import Main from "../components/news";
 const HomePage = {
     async render() {
@@ -10,7 +11,7 @@ const HomePage = {
             </div>
         ${await Main.render()}
         <div
-                class="banner-bottom my-16 bg-no-repeat w-full bg-cover bg-center bg-[url('https://placeimg.com/1520/580/technics')]">
+                class="banner-bottom my-16 bg-no-repeat w-full bg-cover bg-center bg-[url('https://res.cloudinary.com/dkiw9eaeh/image/upload/v1644675621/banner-bottom_vlnuko.jpg')]">
             </div>
             <div class="contact text-center">
                 <h2 class="p-12 text-5xl font-[500]">Awesome feedback</h2>
@@ -19,6 +20,9 @@ const HomePage = {
             </div>
         </main>
         `
+    },
+    afterRender(){
+        Header.afterRender();
     }
 }
 

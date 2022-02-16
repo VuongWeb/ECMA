@@ -1,5 +1,5 @@
-import HeaderAdmin from "../components/headerAdmin";
-import PostAdmin from "../components/PostAdmin";
+import HeaderAdmin from "../../components/headerAdmin";
+import PostAdmin from "../../components/PostAdmin";
 
 const ListNewsAdmin ={
     async render(){
@@ -7,6 +7,9 @@ const ListNewsAdmin ={
         ${await HeaderAdmin.render()}
         ${await PostAdmin.render()}
         `;
+    },
+    afterRender(){
+        PostAdmin.afterRender();
     }
 }
 
