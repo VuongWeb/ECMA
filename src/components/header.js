@@ -47,6 +47,12 @@ const Header = {
                         <li><a href="/about"
                                 class="p-3 text-lg text-[#888] font-[600] hover:border-b-2 hover:border-[#03778e] hover:text-[#03778e] ">ABOUT US</a>
                         </li>
+                        <li><a href="/products"
+                                class="p-3 text-lg text-[#888] font-[600] hover:border-b-2 hover:border-[#03778e] hover:text-[#03778e] ">PRODUCTS</a>
+                        </li>
+                        <li><a href="/posts"
+                                class="p-3 text-lg text-[#888] font-[600] hover:border-b-2 hover:border-[#03778e] hover:text-[#03778e] ">POSTS</a>
+                        </li>
                         <li class="relative"><a href="/contact"
                                 class=" px-3 text-lg text-[#888] font-[600] hover:border-b-2 hover:border-[#03778e] hover:text-[#03778e] ">CONTACT
                             </a>
@@ -62,9 +68,11 @@ const Header = {
             <div id="signined" class="flex">
                 
             </div>
+            <a href="/#/cart">
                 <div class="cart pl-3 text-lg text-[#888] font-[600] item-center">GIỎ HÀNG / 0 ₫
                     <i class="fas fa-shopping-cart"></i>
                 </div>
+                </a>
             </div>
         </header> 
         <main class="bg-[#dbdad7]">
@@ -83,21 +91,21 @@ const Header = {
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
     </svg></div>
     </div>`;
-    //print username
+      //print username
       const email = document.querySelector("#emailUser");
       email.innerHTML = JSON.parse(localStorage.getItem("user")).email;
       //phân quyền
-      if(JSON.parse(localStorage.getItem("user")).id ===1){
-        admin.innerHTML=`<a href="/admin"
+      if (JSON.parse(localStorage.getItem("user")).id === 1) {
+        admin.innerHTML = `<a href="/admin"
         class="p-3 text-lg text-[#888] font-[600] hover:border-b-2 hover:border-[#03778e] hover:text-[#03778e] ">ADMIN</a>`;
-      }else{
-        admin.innerHTML="";
+      } else {
+        admin.innerHTML = "";
       }
       //logout
       const logout = document.querySelector("#logout");
       logout.addEventListener("click", () => {
         localStorage.removeItem("user");
-        toastr.success("banj ddax dang xuat thanh cong")
+        toastr.success("banj ddax dang xuat thanh cong");
         reRender(Header, "#header");
       });
     } else {
@@ -114,7 +122,7 @@ const Header = {
         </li>
     </ul>`;
     }
-    // 
+    //
   },
 };
 

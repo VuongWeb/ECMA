@@ -1,16 +1,16 @@
 import HeaderAdmin from "../../components/headerAdmin";
-import PostAdmin from "../../components/PostAdmin";
+import ProAdmin from "../../components/ProAdmin";
 
-const ListNewsAdmin ={
+const ListProductAdmin ={
     async render(){
         return `
         ${await HeaderAdmin.render()}
-        ${await PostAdmin.render()}
+        ${await ProAdmin.render()}
         `;
     },
     afterRender(){
-        PostAdmin.afterRender();
+        ProAdmin.afterRender();
     }
 }
 
-export default ListNewsAdmin;
+export default ListProductAdmin;

@@ -68,6 +68,7 @@ const SignIn = {
         `;
   },
   afterRender() {
+    Header.afterRender()
     const formSigin = document.querySelector("#form-sigin");
     formSigin.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -76,6 +77,7 @@ const SignIn = {
           email: document.querySelector("#email-address").value,
           password: document.querySelector("#password").value,
         });
+        // console.log(data)
         if (data) {
           localStorage.setItem("user", JSON.stringify(data.user));
           toastr.success("Bạn đã đăng nhập thành công!");

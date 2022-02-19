@@ -1,5 +1,5 @@
 import Header from "../components/header";
-import Main from "../components/news";
+import Main from "../components/product";
 const HomePage = {
     async render() {
         return `

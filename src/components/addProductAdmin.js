@@ -2,7 +2,7 @@ import axios from "axios";
 import { add } from "../api/product";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css"
-const AddPostAdmin = {
+const AddProductAdmin = {
   render() {
     // console.log(document)
     return /*html*/ `
@@ -85,10 +85,10 @@ const AddPostAdmin = {
         }
         add(newPro);
         toastr.success("Bạn đã thêm thành công !");
-        document.location.href="/admin/listpost";
+        document.location.href="/#/admin/listproducts";
       })
       });
   },
 };
 
-export default AddPostAdmin;
+export default AddProductAdmin;

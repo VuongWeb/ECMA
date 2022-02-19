@@ -3,16 +3,21 @@ import Banner from "./components/banner";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import HomePage from "./page/home";
-import NewsPage from "./page/newsPage";
-import DetailNewsPage from "./page/detailNews";
-import EditPostPage from "./page/admin/editPostPage";
 import SignIn from "./page/signin";
 import SignUp from "./page/signup";
-import AddPostAdmin from "./components/addpostAdmin";
+import AddPostAdmin from "./components/addProductAdmin";
 import AboutPage from "./page/about";
 import Contact from "./page/contact";
 import AdminDashBroad from "./page/admin/adminDashBoard";
-import ListNewsAdmin from "./page/admin/ListNewsAdmin";
+import CartPage from "./page/cart";
+import ProPage from "./page/productPage";
+import DetailProductPage from "./page/detailProduct";
+import ListProductAdmin from "./page/admin/ListProductAdmin";
+import PostPage from "./page/PostPage";
+import ListPostAdmin from "./page/admin/listPostAdmin";
+import DetailPostPage from "./page/detailPost";
+import EditProPage from "./page/admin/editProductPage";
+import EditPostPage from "./page/admin/editPost";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -34,7 +39,6 @@ const printAdmin = async (admin, id) => {
 
 router.on("/admin/*", () => {}, {
   before: (done) => {
-      // console.log('dcm');
       const userId = JSON.parse(localStorage.getItem('user')).id;
       console.log(userId);
       if(userId === 1){
@@ -52,8 +56,8 @@ router.on({
   "": () => {
     print(HomePage);
   },
-  "/news": () => {
-    print(NewsPage);
+  "/cart": () => {
+    print(CartPage);
   },
   "/about": () => {
     print(AboutPage);
@@ -61,18 +65,34 @@ router.on({
   "/contact": () => {
     print(Contact);
   },
-  "/news/:id": (value) => {
-    // const { id } = data;
-    print(DetailNewsPage, value.data.id);
+  "/posts":()=>{
+    print(PostPage);
   },
+  "/post/:id":(value)=>{
+    print(DetailPostPage,value.data.id);
+  },
+  // product
+  "/products": () => {
+    print(ProPage);
+  },
+  "/product/:id": (value) => {
+    print(DetailProductPage, value.data.id);
+  },
+  //admin
   "/admin": () => {
     printAdmin(AdminDashBroad);
   },
-  "/admin/listpost": () => {
-    printAdmin(ListNewsAdmin);
+  "/admin/listproducts": () => {
+    printAdmin(ListProductAdmin);
   },
-  "/admin/addpost": () => {
+  "/admin/listposts": () => {
+    printAdmin(ListPostAdmin);
+  },
+  "/admin/addproduct": () => {
     printAdmin(AddPostAdmin);
+  },
+  "/admin/editproduct/:id": (value) => {
+    printAdmin(EditProPage, value.data.id);
   },
   "/admin/editpost/:id": (value) => {
     printAdmin(EditPostPage, value.data.id);

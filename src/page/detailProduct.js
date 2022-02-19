@@ -1,7 +1,11 @@
-import axios from "axios";
 import { get } from "../api/product";
+import { $ } from "../utils/index"
 import RelatedProducts from "../components/relatedProducts";
-const DetailNewsPage = {
+import { addToCart, numberFormat } from "../utils/cart";
+import toastr  from "toastr";
+import "toastr/build/toastr.min.css"
+import Header from "../components/header";
+const DetailProductPage = {
     async render(id) {
         const {data} = await get(id);
         return  /* html */`
@@ -42,13 +46,13 @@ const DetailNewsPage = {
                         </svg>
                     </span>
                     <span class="line-through text-[#888] text-3xl mr-4">250,000₫</span><span
-                        class="font-[500] text-red-500 text-3xl">${data.Price.toLocaleString()}₫</span>
+                        class="font-[500] text-red-500 text-3xl">${numberFormat.format(data.Price)}₫</span>
                     <h5 class="mt-8 font-[500] text-2xl pb-3">Bảng chi tiết size :</h5>
                     <img src="https://shop.mixigaming.com/wp-content/uploads/2021/01/size-ao-phong-1400x800.jpg" alt=""
                         width="550">
                     <form action="" class="my-6">
                         <label for="" class="text-xl font-[500]">Chọn size áo :</label>
-                        <select name="" id="" class="my-8  w-36 border-none outline-none p-2 rounded-lg">
+                        <select name="" id="" class="my-8  w-42  outline-none p-2 rounded-lg border-2">
                             <option value="">Chọn size tùy ý</option>
                             <option value="">XS</option>
                             <option value="">S</option>
@@ -58,8 +62,8 @@ const DetailNewsPage = {
                         </select><br>
                         <label for="" class="text-xl "> <i class="fas fa-circle texl-xs text-green-500"></i> Còn
                             hàng</label><br>
-                        <input type="number" min="1" value="1" class="mt-6 outline-none rounded-lg p-2">
-                        <button class="bg-red-300 p-2 rounded-lg font-[500] text-[#fff] ">Thêm vào giỏ hàng</button>
+                        <input type="number" id="inputValue" min="1" value="1" class="border-2 mt-6 outline-none rounded-lg p-2">
+                        <button id="addToCart" class="bg-red-300 p-2 rounded-lg font-[500] text-[#fff] ">Thêm vào giỏ hàng</button>
                     </form>
                     <span>Danh mục :</span><a href="#"><span> Áo Mixi</span></a>
                     <div class="icon mt-6">
@@ -73,7 +77,17 @@ const DetailNewsPage = {
         </div>
         ${ await RelatedProducts.render()}
         `
+    },afterRender(id){
+        Header.afterRender();
+        const inputValue = $('#inputValue');
+        $('#addToCart').addEventListener('click', async (e) =>{
+            e.preventDefault()
+            const{ data } = await get(id);
+            addToCart({...data,quantity : inputValue ? +inputValue.value : 1},()=>{
+                toastr.success("Thêm vào giỏ hàng thành công !");
+            })
+        });
     }
 }
 
-export default DetailNewsPage;
+export default DetailProductPage;

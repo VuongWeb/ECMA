@@ -1,3 +1,5 @@
+import toastr from "toastr";
+import "toastr/build/toastr.min.css"
 import { signup } from "../api/user";
 import Footer from "../components/footer";
 import Header from "../components/header";
@@ -61,13 +63,18 @@ const SignUp = {
         `;
   },
   afterRender() {
+    Header.afterRender()
     const formSignup = document.querySelector("#formSignup");
     formSignup.addEventListener("submit", (e) => {
       e.preventDefault();
       signup({
         email: document.querySelector("#email-address").value,
         password: document.querySelector("#password").value,
-      }).then(res=> window.location.href="/#/signin");
+      }).then(()=> {
+        toastr.success('đăng ký thành công ! hãy đăng nhập!')
+        setTimeout(()=>window.location.href="/#/signin",2000)
+        ;
+      });
     });
   },
 };
