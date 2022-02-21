@@ -69,7 +69,7 @@ const Header = {
             <a href="/#/cart">
                 <div class="cart px-4 text-lg text-[#888] font-[600] item-center relative">GIỎ HÀNG 
                     <i class="fas fa-shopping-cart z-0 text-2xl"></i>
-                    <span id="number" class="absolute bottom-2 left-32 z-10 text-red-500 p-1">0</span>
+                    <span id="number" class="absolute bottom-2 left-32 z-10 text-white rounded-full bg-[#FF9F45] p-1">0</span>
                 </div>
                 </a>
             </div>

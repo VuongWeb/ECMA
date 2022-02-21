@@ -42,7 +42,7 @@ const CartPage = {
         <tfoot>
             <tr class="">
                 <td colspan="7" class="p-3 font-bold"> Tổng tiền:</td>
-                <td class="font-bold text-red-600"><span id="totalPrice"></span>đ</td>
+                <td class="font-bold text-red-600"><span id="totalPrice">0</span>đ</td>
             </tr>
         </tfoot>
     </table>
@@ -51,10 +51,6 @@ const CartPage = {
             <a href="/#/"><button class="bg-[#03778e] p-3 m-2 text-white">Tiếp tục mua hàng</button></a>
             <a href="#"><button class="bg-[#03778e] p-3 m-2 text-white">Thanh toán</button></a>
         </div>
-        <form action="" class="p-4">
-            <input type="text" class="p-2 outline-none border-2" placeholder="Mã giảm giá "><br>
-            <button type="submit" class="bg-[#03778e] text-white p-2 mt-2 ">Áp dụng</button>
-     </form>
     </div>
         `
     },
