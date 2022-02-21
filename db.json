@@ -131,5 +131,18 @@
       "Price": "2500000"
     }
   ],
-  "categori": []
+  "cates": [
+    {
+      "id": "1",
+      "name": "Ao Mixi "
+    },
+    {
+      "id": "2",
+      "name": "Đồ lưu niệm"
+    },
+    {
+      "name": "Áo ba lỗ ",
+      "id": "QNZvxLS"
+    }
+  ]
 }

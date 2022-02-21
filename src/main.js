@@ -18,6 +18,10 @@ import DetailPostPage from "./page/detailPost";
 import EditProPage from "./page/admin/editProductPage";
 import EditPostPage from "./page/admin/editPost";
 import CartPage from "./page/cartPage";
+import CheckOut from "./page/checkOut";
+import ListCate from "./page/admin/listCateAdmin";
+import EditCatePage from "./page/admin/editCate";
+import AddCate from "./page/admin/addCate";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -59,6 +63,9 @@ router.on({
   "/cart": () => {
     print(CartPage);
   },
+  "/checkout": () => {
+    print(CheckOut);
+  },
   "/about": () => {
     print(AboutPage);
   },
@@ -96,6 +103,16 @@ router.on({
   },
   "/admin/editpost/:id": (value) => {
     printAdmin(EditPostPage, value.data.id);
+  },
+  //cate
+  "/admin/listcates": () => {
+    printAdmin(ListCate);
+  },
+  "/admin/addcate": () => {
+    printAdmin(AddCate);
+  },
+  "/admin/editcate/:id": (value) => {
+    printAdmin(EditCatePage,value.data.id);
   },
   "/signin": () => {
     printAdmin(SignIn);

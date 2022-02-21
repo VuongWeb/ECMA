@@ -5,7 +5,8 @@ const HomePage = {
         return `
         <div class="title text-center mb-12">
                 <h2 class=" font-[700] p-12 text-4xl ">BÁN CHẠY NHẤT</h2>
-                <button class="p-2 font-[400] text-xl border-2 text-[#03778e] border-[#03778e] "><a href="#">XEM TẤT
+                
+                <button class="p-2 font-[400] text-xl border-2 text-[#03778e] border-[#03778e] "><a href="#/products">XEM TẤT
                         CẢ</a>
                 </button>
             </div>

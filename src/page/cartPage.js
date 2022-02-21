@@ -49,7 +49,7 @@ const CartPage = {
     <div class="item flex justify-evenly">
         <div class="left">
             <a href="/#/"><button class="bg-[#03778e] p-3 m-2 text-white">Tiếp tục mua hàng</button></a>
-            <a href="#"><button class="bg-[#03778e] p-3 m-2 text-white">Thanh toán</button></a>
+            <a href="/#/checkout"><button class="bg-[#03778e] p-3 m-2 text-white">Thanh toán</button></a>
         </div>
     </div>
         `
