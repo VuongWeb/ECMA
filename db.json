@@ -1,0 +1,148 @@
+{
+  "pro": [
+    {
+      "id": "1",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Ao-phong-Mixi-Phong-Stream-scaled.jpg",
+      "name": "Áo phông -Tộc Trưởng -abc",
+      "Price": "250000"
+    },
+    {
+      "createdAt": "2022-01-19T07:35:35.945Z",
+      "name": "Áo phông -Tộc Trưởng",
+      "Price": "250000",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/ao-phong-mixi-trang-scaled.jpg",
+      "id": "2"
+    },
+    {
+      "createdAt": "2022-01-19T07:35:35.945Z",
+      "name": "Áo phông Mixi Phòng Stream",
+      "Price": "250000",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Ao-phong-Mixi-Phong-Stream-scaled.jpg",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "name": "Áo phông -Tộc Trưởng",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645278296/aqlj51f2bosgscw536nk.jpg",
+      "Price": "250000"
+    },
+    {
+      "createdAt": "2022-01-19T07:35:35.945Z",
+      "name": "Áo phông -Tộc Trưởng",
+      "Price": "250000",
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Untitled-Capture1577-scaled.jpg",
+      "id": "5"
+    },
+    {
+      "id": "6",
+      "name": "Áo phông - Đen -Tộc Trưởng",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282939/twpoxztbcztm1nwxkvr1.jpg",
+      "Price": "250000"
+    },
+    {
+      "id": "mpoDnBN",
+      "name": "Áo phông mixi ",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645278660/sm1dyzaqrlsjrndkvim2.jpg",
+      "Price": "120000"
+    },
+    {
+      "id": "bFIrnhb",
+      "name": "Áo phông -đen Mixi",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282956/sqyt191abrvwsj5zdtpv.jpg",
+      "Price": "120000"
+    },
+    {
+      "id": "hat9f3N",
+      "name": "Lê Văn Vương",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645409413/p6dzvzg43zbhvhg77o3b.jpg",
+      "Price": "120000"
+    },
+    {
+      "id": "0tuTPm1",
+      "name": " Bộ Ghép Hình Mixi - Mixi Block SS1 - MixiShop",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645326262/xef4gbp5zqbwgs7k1egy.jpg",
+      "Price": "2500000"
+    },
+    {
+      "name": "Lê Văn Vương",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645407475/tulcsx0ex60xsqquvb0k.jpg",
+      "Price": "3000",
+      "id": "VjldFJx"
+    },
+    {
+      "name": "Đỗ Thị Tuyết Mai",
+      "cate": "2",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645421976/zie60bpxwr3xwyn0mvdm.jpg",
+      "Price": "50000",
+      "id": "AheY-bD"
+    },
+    {
+      "id": "gRKAIsr",
+      "name": "Thảo quả update 3",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645423109/axj9ghyl7lreporii7dz.png",
+      "Price": "200000"
+    }
+  ],
+  "users": [
+    {
+      "email": "vuonglv@fpt.edu.vn",
+      "password": "$2a$10$6yzy3V7D1mTBE.cZxFW0/u4bHE7GoUlyb3.5W5t.xKPQXDTgw7w.y",
+      "id": 1
+    },
+    {
+      "email": "longbd@gmail.com",
+      "password": "$2a$10$nf.qBGDswGKh8n6HOkxAoOiudLmROfdqUZGkhTKKAXixe0WDIOga2",
+      "id": 3
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$AaQ50tUc.NjneHaTKa94TuGeSxozDQv67XWk9fmVQQzpkqv/7nbM2",
+      "id": 4
+    },
+    {
+      "email": "1234@gmail.com",
+      "password": "$2a$10$7GQFs9ybJxPwM0DiTWiZ.u42jADNdHzT6EQSlukt888CikYB4UK6K",
+      "id": 5
+    },
+    {
+      "email": "vuongvuong@gmail.com",
+      "password": "$2a$10$.H8jacHgnRJmmf.mPv5QI.o/UODtBt.sLvU/Tk75Vd0Qv2Cr8uHF.",
+      "id": 6
+    },
+    {
+      "email": "0359875710@gmail.com",
+      "password": "$2a$10$n4iC3GrsKEY6BeOBMXdhyOfztTniA7L2Es98yGCfuGd3vBaLP4WC2",
+      "id": 7
+    }
+  ],
+  "posts": [
+    {
+      "title": "Áo phông -đen Mixi Mới được ra mắt !",
+      "img_post": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645020729/awsjjwjsyj0bjcqyr1jg.jpg",
+      "desc": "Mua Áo phông Độ Mixi dành cho các tín đồ game PUBG giá tốt. Mua hàng qua mạng uy tín, tiện lợi. Shopee đảm bảo nhận hàng, hoặc được hoàn lại tiền Giao Hàng",
+      "id": "1"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "name": " Bộ Ghép Hình Mixi - Mixi Block SS1 - MixiShop",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645326262/xef4gbp5zqbwgs7k1egy.jpg",
+      "Price": "2500000"
+    }
+  ],
+  "cates": [
+    {
+      "id": "1",
+      "name": "Ao Mixi "
+    },
+    {
+      "id": "2",
+      "name": "Đồ lưu niệm"
+    },
+    {
+      "name": "Áo ba lỗ ",
+      "id": "QNZvxLS"
+    }
+  ]
+}
