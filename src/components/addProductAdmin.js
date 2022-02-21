@@ -2,10 +2,12 @@ import axios from "axios";
 import { add } from "../api/product";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css"
+import HeaderAdmin from "./headerAdmin";
 const AddProductAdmin = {
   render() {
     // console.log(document)
     return /*html*/ `
+    ${HeaderAdmin.render()}
         <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <h1 class="text-3xl font-bold text-gray-900">
@@ -26,9 +28,10 @@ const AddProductAdmin = {
                             <div class="col-span-6 sm:col-span-3">
                               <label for="title" class="block text-sm font-medium text-gray-700">Name</label>
                               <input type="text"  id="name" autocomplete="given-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 border-2 rounded-md">
-                            </div>
+                            </div><br>
                             <div class="col-span-6 sm:col-span-3">
                               <label for="img" class="block text-sm font-medium text-gray-700">Img(url)</label>
+                              <img src="https://res.cloudinary.com/dkiw9eaeh/image/upload/v1645279177/gyoa74gjszhwmstchttd.jpg" width="200" id="img_preview" />
                               <input type="file" id="img" autocomplete="family-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300  border-2 rounded-md">
                             </div>
                             <div class="col-span-6 sm:col-span-4">
@@ -61,10 +64,15 @@ const AddProductAdmin = {
   afterRender() {
     const formAdd = document.querySelector("#form-add-pro");
     const imgPro = document.querySelector("#img");
+    const img_preview = document.querySelector('#img_preview');
 
     const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/dkiw9eaeh/image/upload";
     const COLUDINARY_PRESET = "wgapgiev";
     
+    imgPro.addEventListener('change',(e)=>{
+      img_preview.src = URL.createObjectURL(imgPro.files[0])
+    })
+
     formAdd.addEventListener("submit", async (e) => {
       e.preventDefault();
       
@@ -85,7 +93,7 @@ const AddProductAdmin = {
         }
         add(newPro);
         toastr.success("Bạn đã thêm thành công !");
-        document.location.href="/#/admin/listproducts";
+        setTimeout(document.location.href="/#/admin/listproducts",2000);
       })
       });
   },

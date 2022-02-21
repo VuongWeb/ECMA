@@ -9,7 +9,6 @@ import AddPostAdmin from "./components/addProductAdmin";
 import AboutPage from "./page/about";
 import Contact from "./page/contact";
 import AdminDashBroad from "./page/admin/adminDashBoard";
-import CartPage from "./page/cart";
 import ProPage from "./page/productPage";
 import DetailProductPage from "./page/detailProduct";
 import ListProductAdmin from "./page/admin/ListProductAdmin";
@@ -18,6 +17,7 @@ import ListPostAdmin from "./page/admin/listPostAdmin";
 import DetailPostPage from "./page/detailPost";
 import EditProPage from "./page/admin/editProductPage";
 import EditPostPage from "./page/admin/editPost";
+import CartPage from "./page/cartPage";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 

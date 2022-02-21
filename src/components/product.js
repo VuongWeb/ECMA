@@ -10,7 +10,7 @@ const Main ={
                 <div class="col-product box-border text-center relative">
                     <a href="/product/${pro.id}">
                         <img src="${pro.img}"
-                            alt="" width="400">
+                            alt="" class="w-[600] ">
                         <span class="flex justify-center p-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20"
                                 fill="currentColor">

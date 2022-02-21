@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* header  */
-.container{
+/* .container{
     @apply max-w-5xl m-auto;
 }
 
@@ -32,7 +32,7 @@
 }
 
 /* content  */
-
+/*
 .title{
     @apply uppercase py-3 text-[#272f54] font-bold;
 }
@@ -63,4 +63,4 @@
 
 .text_link{
     @apply text-[#fff] uppercase;
-}
+}  */

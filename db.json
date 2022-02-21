@@ -21,11 +21,10 @@
       "id": "3"
     },
     {
-      "createdAt": "2022-01-19T07:35:35.945Z",
+      "id": "4",
       "name": "Áo phông -Tộc Trưởng",
-      "Price": "250000",
-      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/ao-phong-mixi-trang-scaled.jpg",
-      "id": "4"
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645278296/aqlj51f2bosgscw536nk.jpg",
+      "Price": "250000"
     },
     {
       "createdAt": "2022-01-19T07:35:35.945Z",
@@ -35,23 +34,40 @@
       "id": "5"
     },
     {
-      "createdAt": "2022-01-19T07:35:35.945Z",
+      "id": "6",
       "name": "Áo phông - Đen -Tộc Trưởng",
-      "Price": "250000",
-      "img": "https://shop.mixigaming.com/wp-content/uploads/2019/10/Untitled-Capture2553-scaled.jpg",
-      "id": "6"
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282939/twpoxztbcztm1nwxkvr1.jpg",
+      "Price": "250000"
     },
     {
+      "id": "mpoDnBN",
       "name": "Áo phông mixi ",
-      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645020693/zwfuwulxeijwavm3agdj.jpg",
-      "Price": "120000",
-      "id": "mpoDnBN"
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645278660/sm1dyzaqrlsjrndkvim2.jpg",
+      "Price": "120000"
     },
     {
+      "id": "bFIrnhb",
       "name": "Áo phông -đen Mixi",
-      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645020729/awsjjwjsyj0bjcqyr1jg.jpg",
-      "Price": "120000",
-      "id": "bFIrnhb"
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282956/sqyt191abrvwsj5zdtpv.jpg",
+      "Price": "120000"
+    },
+    {
+      "id": "hat9f3N",
+      "name": "Lê Văn Vương",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645409413/p6dzvzg43zbhvhg77o3b.jpg",
+      "Price": "120000"
+    },
+    {
+      "id": "0tuTPm1",
+      "name": " Bộ Ghép Hình Mixi - Mixi Block SS1 - MixiShop",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645326262/xef4gbp5zqbwgs7k1egy.jpg",
+      "Price": "2500000"
+    },
+    {
+      "name": "Lê Văn Vương",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645407475/tulcsx0ex60xsqquvb0k.jpg",
+      "Price": "3000",
+      "id": "VjldFJx"
     }
   ],
   "users": [
@@ -94,6 +110,13 @@
       "id": "1"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "1",
+      "name": " Bộ Ghép Hình Mixi - Mixi Block SS1 - MixiShop",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645326262/xef4gbp5zqbwgs7k1egy.jpg",
+      "Price": "2500000"
+    }
+  ],
   "categori": []
 }

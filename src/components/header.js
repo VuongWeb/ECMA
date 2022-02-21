@@ -57,8 +57,6 @@ const Header = {
                                 class=" px-3 text-lg text-[#888] font-[600] hover:border-b-2 hover:border-[#03778e] hover:text-[#03778e] ">CONTACT
                             </a>
                         </li>
-
-
                         <li id="admin">
                         </li>
                     </ul>
@@ -69,8 +67,9 @@ const Header = {
                 
             </div>
             <a href="/#/cart">
-                <div class="cart pl-3 text-lg text-[#888] font-[600] item-center">GIỎ HÀNG / 0 ₫
-                    <i class="fas fa-shopping-cart"></i>
+                <div class="cart px-4 text-lg text-[#888] font-[600] item-center relative">GIỎ HÀNG 
+                    <i class="fas fa-shopping-cart z-0 text-2xl"></i>
+                    <span id="number" class="absolute bottom-2 left-32 z-10 text-red-500 p-1">0</span>
                 </div>
                 </a>
             </div>
@@ -82,14 +81,17 @@ const Header = {
   afterRender() {
     const signined = document.querySelector("#signined");
     const admin = document.querySelector("#admin");
+    const number_cart= document.querySelector("#number");
+    // check cart
+    if(localStorage.getItem('cart')){
+      number_cart.innerHTML = JSON.parse(localStorage.getItem('cart')).length;
+    }
     //check user signin
     if (localStorage.getItem("user")) {
       // console.log(localStorage.getItem("user"))
       signined.innerHTML = ` <div id="signined" class="flex">
-      <div class="user font-mono">xin chào : <span id="emailUser"></span></div>
-      <div class="logout cursor-pointer" id="logout"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-    </svg></div>
+      <div class="user font-sans text-xl px-3">Xin chào : <span id="emailUser"></span></div>
+      <div class="logout cursor-pointer font-sans text-lg px-3" id="logout">Đăng xuất</div>
     </div>`;
       //print username
       const email = document.querySelector("#emailUser");
@@ -105,7 +107,7 @@ const Header = {
       const logout = document.querySelector("#logout");
       logout.addEventListener("click", () => {
         localStorage.removeItem("user");
-        toastr.success("banj ddax dang xuat thanh cong");
+        toastr.success("bạn đã đăng xuất thành công !");
         reRender(Header, "#header");
       });
     } else {

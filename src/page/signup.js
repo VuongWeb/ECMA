@@ -72,8 +72,7 @@ const SignUp = {
         password: document.querySelector("#password").value,
       }).then(()=> {
         toastr.success('đăng ký thành công ! hãy đăng nhập!')
-        setTimeout(()=>window.location.href="/#/signin",2000)
-        ;
+        setTimeout(()=>window.location.href="/#/signin",2000);
       });
     });
   },

@@ -1,14 +1,15 @@
 import { get } from "../api/product";
-import { $ } from "../utils/index"
+import { $ } from "../utils/index";
 import RelatedProducts from "../components/relatedProducts";
 import { addToCart, numberFormat } from "../utils/cart";
-import toastr  from "toastr";
-import "toastr/build/toastr.min.css"
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 import Header from "../components/header";
+import { reRender } from "../utils/reRender";
 const DetailProductPage = {
-    async render(id) {
-        const {data} = await get(id);
-        return  /* html */`
+  async render(id) {
+    const { data } = await get(id);
+    return /* html */ `
         <div class="title p-8 ml-24">
                 <a href="#" class="text-[#888]">Trang chủ /</a>
                 <a href="#" class="text-[#888]">Áo Mixi</a>
@@ -46,13 +47,15 @@ const DetailProductPage = {
                         </svg>
                     </span>
                     <span class="line-through text-[#888] text-3xl mr-4">250,000₫</span><span
-                        class="font-[500] text-red-500 text-3xl">${numberFormat.format(data.Price)}₫</span>
+                        class="font-[500] text-red-500 text-3xl">${numberFormat.format(
+                          data.Price
+                        )}₫</span>
                     <h5 class="mt-8 font-[500] text-2xl pb-3">Bảng chi tiết size :</h5>
                     <img src="https://shop.mixigaming.com/wp-content/uploads/2021/01/size-ao-phong-1400x800.jpg" alt=""
                         width="550">
                     <form action="" class="my-6">
                         <label for="" class="text-xl font-[500]">Chọn size áo :</label>
-                        <select name="" id="" class="my-8  w-42  outline-none p-2 rounded-lg border-2">
+                        <select name="" id="size" class="my-8  w-42  outline-none p-2 rounded-lg border-2">
                             <option value="">Chọn size tùy ý</option>
                             <option value="">XS</option>
                             <option value="">S</option>
@@ -63,7 +66,9 @@ const DetailProductPage = {
                         <label for="" class="text-xl "> <i class="fas fa-circle texl-xs text-green-500"></i> Còn
                             hàng</label><br>
                         <input type="number" id="inputValue" min="1" value="1" class="border-2 mt-6 outline-none rounded-lg p-2">
-                        <button id="addToCart" class="bg-red-300 p-2 rounded-lg font-[500] text-[#fff] ">Thêm vào giỏ hàng</button>
+                        <button id="addToCart" data-id="${
+                          data.id
+                        }" class="bg-red-300 p-2 rounded-lg font-[500] text-[#fff] ">Thêm vào giỏ hàng</button>
                     </form>
                     <span>Danh mục :</span><a href="#"><span> Áo Mixi</span></a>
                     <div class="icon mt-6">
@@ -75,19 +80,24 @@ const DetailProductPage = {
                 </div>
             </div>
         </div>
-        ${ await RelatedProducts.render()}
-        `
-    },afterRender(id){
-        Header.afterRender();
-        const inputValue = $('#inputValue');
-        $('#addToCart').addEventListener('click', async (e) =>{
-            e.preventDefault()
-            const{ data } = await get(id);
-            addToCart({...data,quantity : inputValue ? +inputValue.value : 1},()=>{
-                toastr.success("Thêm vào giỏ hàng thành công !");
-            })
-        });
-    }
-}
+        ${await RelatedProducts.render()}
+        `;
+  },
+  afterRender(id) {
+    Header.afterRender();
+    const inputValue = $("#inputValue");
+    $("#addToCart").addEventListener("click", async (e) => {
+      e.preventDefault();
+      const { data } = await get(id);
+      addToCart(
+        { ...data,size:$('size').value, quantity: inputValue ? +inputValue.value : 1 },
+        () => {
+          toastr.success("Thêm vào giỏ hàng thành công !");
+          reRender(Header,"#header");
+        }
+      );
+    });
+  },
+};
 
 export default DetailProductPage;
