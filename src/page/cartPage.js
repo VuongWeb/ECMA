@@ -42,7 +42,7 @@ const CartPage = {
         <tfoot>
             <tr class="">
                 <td colspan="7" class="p-3 font-bold"> Tổng tiền:</td>
-                <td class="font-bold text-red-600"><span id="totalPrice">${total}</span> đ</td>
+                <td class="font-bold text-red-600"><span id="totalPrice"></span>đ</td>
             </tr>
         </tfoot>
     </table>
@@ -61,7 +61,17 @@ const CartPage = {
     afterRender(){
         Header.afterRender();
         const btns= $('.btn');
-        
+        const totalPrice =$('#totalPrice');
+        let total =0;
+        if(JSON.parse(localStorage.getItem('cart'))){
+            const cart = JSON.parse(localStorage.getItem('cart'));
+            cart.forEach(item =>{
+                total +=item.Price*item.quantity;
+                totalPrice.innerHTML= numberFormat.format(total);
+            })
+        }
+
+
        btns.forEach(btns => {
            btns.addEventListener('click',()=>{
                const id = btns.dataset.id;

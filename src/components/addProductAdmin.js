@@ -1,7 +1,7 @@
 import axios from "axios";
 import { add } from "../api/product";
 import toastr from "toastr";
-import "toastr/build/toastr.min.css"
+import "toastr/build/toastr.min.css";
 import HeaderAdmin from "./headerAdmin";
 const AddProductAdmin = {
   render() {
@@ -35,6 +35,12 @@ const AddProductAdmin = {
                               <input type="file" id="img" autocomplete="family-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300  border-2 rounded-md">
                             </div>
                             <div class="col-span-6 sm:col-span-4">
+                            <select name="" id="cate">
+                                <option value="1">Áo</option>
+                                <option value="2">Đồ lưu niệm</option>
+                            </select>
+                            </div>
+                            <div class="col-span-6 sm:col-span-4">
                               <label for="description" class="block text-sm font-medium text-gray-700">Price</label>
                               <input type="text" name="price" id="price"  class=" p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border-2">
                             </div>
@@ -64,38 +70,42 @@ const AddProductAdmin = {
   afterRender() {
     const formAdd = document.querySelector("#form-add-pro");
     const imgPro = document.querySelector("#img");
-    const img_preview = document.querySelector('#img_preview');
+    const img_preview = document.querySelector("#img_preview");
 
-    const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/dkiw9eaeh/image/upload";
+    const CLOUDINARY_API =
+      "https://api.cloudinary.com/v1_1/dkiw9eaeh/image/upload";
     const COLUDINARY_PRESET = "wgapgiev";
-    
-    imgPro.addEventListener('change',(e)=>{
-      img_preview.src = URL.createObjectURL(imgPro.files[0])
-    })
+
+    imgPro.addEventListener("change", (e) => {
+      img_preview.src = URL.createObjectURL(imgPro.files[0]);
+    });
 
     formAdd.addEventListener("submit", async (e) => {
       e.preventDefault();
-      
+
       const file = imgPro.files[0];
       const formData = new FormData();
       formData.append("file", file);
-      formData.append("upload_preset",COLUDINARY_PRESET );
+      formData.append("upload_preset", COLUDINARY_PRESET);
 
-     await axios.post(CLOUDINARY_API,formData,{
-        headers:{
-          "Content-Type":"application/form-data"
-        }
-      }).then(response => {
-        const newPro = {
-          "name":document.querySelector('#name').value,
-          "img": response.data.url,
-          "Price":document.querySelector('#price').value
-        }
-        add(newPro);
-        toastr.success("Bạn đã thêm thành công !");
-        setTimeout(document.location.href="/#/admin/listproducts",2000);
-      })
-      });
+      await axios
+        .post(CLOUDINARY_API, formData, {
+          headers: {
+            "Content-Type": "application/form-data",
+          },
+        })
+        .then((response) => {
+          const newPro = {
+            name: document.querySelector("#name").value,
+            cate:document.querySelector("#cate").value,
+            img: response.data.url,
+            Price: document.querySelector("#price").value,
+          };
+          add(newPro);
+          toastr.success("Bạn đã thêm thành công !");
+          setTimeout((document.location.href = "/#/admin/listproducts"), 2000);
+        });
+    });
   },
 };
 
