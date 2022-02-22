@@ -15,7 +15,7 @@ const HeaderAdmin ={
                       <a href="/#/admin" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
         
                       <a href="/#/admin/listproducts" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Danh Sách Sản phẩm</a>
-                      <a href="/#/admin/listcates" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Danh muc san pham</a>
+                      <a href="/#/admin/listcates" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Danh mục sản phẩm</a>
                       <a href="/#/admin/listposts" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Danh Sách Bài viết</a>
                       
         

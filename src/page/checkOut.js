@@ -1,3 +1,5 @@
+import Header from "../components/header";
+
 const CheckOut={
     render(){
         return `
@@ -70,6 +72,9 @@ const CheckOut={
             </div>
         </div>  
         `
+    },
+    afterRender(){
+        Header.afterRender();
     }
 }
 export default CheckOut;

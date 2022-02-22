@@ -22,6 +22,7 @@ import CheckOut from "./page/checkOut";
 import ListCate from "./page/admin/listCateAdmin";
 import EditCatePage from "./page/admin/editCate";
 import AddCate from "./page/admin/addCate";
+import CateProductsPage from "./page/cateProductPage";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -84,6 +85,9 @@ router.on({
   },
   "/product/:id": (value) => {
     print(DetailProductPage, value.data.id);
+  },
+  "/cates/:id": (value) => {
+    print(CateProductsPage, value.data.id);
   },
   //admin
   "/admin": () => {

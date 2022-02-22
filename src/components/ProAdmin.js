@@ -1,6 +1,6 @@
 // import { listPost } from "../data";
 
-import { getAll,remove } from "../api/product";
+import { getAll,paginate,remove } from "../api/product";
 import { reRender } from "../utils/reRender";
 
 const ProAdmin = {
@@ -85,6 +85,11 @@ const ProAdmin = {
                               .join("")}
                           </tbody>
                         </table>
+                              <ul class="flex mx-auto">
+                                <li class="p-3 bg-[#03778e] text-white mx-3"><a href="#" id="">1</a></li>
+                                <li class="p-3 bg-[#03778e] text-white mx-3"><a href="#" id="">2</a></li>
+                                <li class="p-3 bg-[#03778e] text-white mx-3"><a href="#" id="">3</a></li>
+                              </ul>
                       </div>
                       <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <a href="/admin/addproduct">
@@ -104,6 +109,8 @@ const ProAdmin = {
         `;
   },
   afterRender() {
+
+
     const btns = document.querySelectorAll('.btns');
     btns.forEach(btn =>{
       const id = btn.dataset.id;
