@@ -144,7 +144,7 @@ const AddProductAdmin = {
             .then((response) => {
               const newPro = {
                 name: document.querySelector("#name").value,
-                cate_id:document.querySelector("#cate").value,
+                cateId:document.querySelector("#cate").value,
                 img: response.data.url,
                 desc:document.querySelector('#desc').value,
                 Price: document.querySelector("#price").value,

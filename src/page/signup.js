@@ -3,6 +3,8 @@ import "toastr/build/toastr.min.css"
 import { signup } from "../api/user";
 import Footer from "../components/footer";
 import Header from "../components/header";
+import $ from "jquery";
+import validate from "jquery-validation";
 
 const SignUp = {
   render() {
@@ -65,16 +67,37 @@ const SignUp = {
   afterRender() {
     Header.afterRender()
     const formSignup = document.querySelector("#formSignup");
-    formSignup.addEventListener("submit", (e) => {
-      e.preventDefault();
-      signup({
-        email: document.querySelector("#email-address").value,
-        password: document.querySelector("#password").value,
-      }).then(()=> {
-        toastr.success('đăng ký thành công ! hãy đăng nhập!')
-        setTimeout(()=>window.location.href="/#/signin",2000);
-      });
-    });
+    formSignup.validate({
+      rules: {
+        "email" :{
+          required:true,
+          minlength:5
+        },
+        
+        "password" :{
+          required:true,
+        },
+      },
+      messages: {
+        "email":{
+          required:"Yêu cầu không bỏ trống!",
+          minlength:"Yêu cầu nhập trên 5 ký tự!"
+        },
+        "password":{
+          required:"Yêu cầu không bỏ trống!",
+        }
+      },
+    })
+    // formSignup.addEventListener("submit", (e) => {
+    //   e.preventDefault();
+    //   signup({
+    //     email: document.querySelector("#email-address").value,
+    //     password: document.querySelector("#password").value,
+    //   }).then(()=> {
+    //     toastr.success('đăng ký thành công ! hãy đăng nhập!')
+    //     setTimeout(()=>window.location.href="/#/signin",2000);
+    //   });
+    // });
   },
 };
 export default SignUp;

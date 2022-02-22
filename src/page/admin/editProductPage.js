@@ -11,7 +11,7 @@ const EditProPage = {
     // console.log(data.cate_id)
     const cates =await (await getAll()).data;
     // console.log(cates)
-    const cate = cates.filter((item) => item.id !== data.cate_id);
+    const cate = cates.filter((item) => item.id !== data.cateId);
     console.log(cate)
     
   
@@ -127,7 +127,7 @@ const EditProPage = {
       update({
         id,
         name: document.querySelector("#title").value,
-        cate_id: document.querySelector("#cate").value,
+        cateId: document.querySelector("#cate").value,
         img: link_img ? link_img : img_preview.src,
         Price: document.querySelector("#price").value,
         desc: document.querySelector("#desc").value,

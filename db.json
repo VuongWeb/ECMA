@@ -1,9 +1,9 @@
 {
-  "pro": [
+  "products": [
     {
       "id": "1",
       "name": "Áo phông -Tộc Trưởng -abc",
-      "cate_id": 3,
+      "cateId": 3,
       "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Ao-phong-Mixi-Phong-Stream-scaled.jpg",
       "Price": "250000"
     },
@@ -13,7 +13,7 @@
       "Price": "250000",
       "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/ao-phong-mixi-trang-scaled.jpg",
       "id": "2",
-      "cate_id": 1
+      "cateId": 1
     },
     {
       "createdAt": "2022-01-19T07:35:35.945Z",
@@ -21,14 +21,14 @@
       "Price": "250000",
       "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Ao-phong-Mixi-Phong-Stream-scaled.jpg",
       "id": "3",
-      "cate_id": 3
+      "cateId": 3
     },
     {
       "id": "4",
       "name": "Áo phông -Tộc Trưởng",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645278296/aqlj51f2bosgscw536nk.jpg",
       "Price": "250000",
-      "cate_id": 1
+      "cateId": 1
     },
     {
       "createdAt": "2022-01-19T07:35:35.945Z",
@@ -36,35 +36,35 @@
       "Price": "250000",
       "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Untitled-Capture1577-scaled.jpg",
       "id": "5",
-      "cate_id": 1
+      "cateId": 1
     },
     {
       "id": "6",
       "name": "Áo phông - Đen -Tộc Trưởng",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282939/twpoxztbcztm1nwxkvr1.jpg",
       "Price": "250000",
-      "cate_id": 2
+      "cateId": 2
     },
     {
       "id": "mpoDnBN",
       "name": "Áo phông mixi ",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645278660/sm1dyzaqrlsjrndkvim2.jpg",
       "Price": "120000",
-      "cate_id": 1
+      "cateId": 1
     },
     {
       "id": "bFIrnhb",
       "name": "Áo phông -đen Mixi",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282956/sqyt191abrvwsj5zdtpv.jpg",
       "Price": "120000",
-      "cate_id": 2
+      "cateId": 2
     },
     {
       "id": "hat9f3N",
       "name": "Lê Văn Vương",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645409413/p6dzvzg43zbhvhg77o3b.jpg",
       "Price": "120000",
-      "cate_id": 2
+      "cateId": 2
     },
     {
       "name": "Đỗ Thị Tuyết Mai",
@@ -72,11 +72,11 @@
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645421976/zie60bpxwr3xwyn0mvdm.jpg",
       "Price": "50000",
       "id": "AheY-bD",
-      "cate_id": 2
+      "cateId": 2
     },
     {
       "name": "Đỗ Thị Tuyết Mai",
-      "cate_id": 3,
+      "cateId": 3,
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645501256/e4sa22f56p0x7y0lrbvq.jpg",
       "Price": "50000",
       "id": "ecjt_Ej"
@@ -84,21 +84,21 @@
     {
       "id": "mhVCYcd",
       "name": "Lê Văn Vương",
-      "cate_id": "1",
+      "cateId": "1",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645521025/asu9q9q5zsbj4zgbukf9.jpg",
       "Price": "3000"
     },
     {
       "id": "R5wKJWQ",
       "name": "Lê Văn Vương",
-      "cate_id": "1",
+      "cateId": "1",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645521322/rms5tutsqkvldf64seyc.jpg",
       "Price": "120000",
       "desc": "undefined1"
     },
     {
       "name": "abc",
-      "cate_id": "3",
+      "cateId": "3",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645521619/dzgq6zjtai5snqncjkni.jpg",
       "desc": "undefined3",
       "Price": "50000",
@@ -106,7 +106,7 @@
     },
     {
       "name": "Lê Văn Vương",
-      "cate_id": "1",
+      "cateId": "1",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645523951/bqjbimm09hcwxnilcfmt.jpg",
       "desc": "undefined4",
       "Price": "20000",
@@ -163,16 +163,16 @@
   ],
   "cates": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Áo  Mixi "
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Đồ lưu niệm"
     },
     {
       "name": "Áo ba lỗ ",
-      "id": "3"
+      "id": 3
     }
   ],
   "order": []
