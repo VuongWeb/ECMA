@@ -4,17 +4,19 @@ import toastr from "toastr";
 import "toastr/build/toastr.min.css";
 import HeaderAdmin from "./headerAdmin";
 import { getAll } from "../api/cate";
+import $ from "jquery";
+import validate from "jquery-validation";
+
 const AddProductAdmin = {
-  
   async render() {
-    const {data } = await getAll();
+    const { data } = await getAll();
     // console.log(document)
     return /*html*/ `
       ${HeaderAdmin.render()}
           <header class="bg-white shadow">
           <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h1 class="text-3xl font-bold text-gray-900">
-          Thêm Bài Viết
+          Add Product
             </h1>
           </div>
         </header>
@@ -30,24 +32,33 @@ const AddProductAdmin = {
                             <div class="grid grid-cols-6 gap-6">
                               <div class="col-span-6 sm:col-span-3">
                                 <label for="title" class="block text-sm font-medium text-gray-700">Name</label>
-                                <input type="text"  id="name" autocomplete="given-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 border-2 rounded-md">
+                                <input type="text" name="name" id="name" autocomplete="given-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 border-2 rounded-md">
                               </div><br>
                               <div class="col-span-6 sm:col-span-3">
                                 <label for="img" class="block text-sm font-medium text-gray-700">Img(url)</label>
                                 <img src="https://res.cloudinary.com/dkiw9eaeh/image/upload/v1645279177/gyoa74gjszhwmstchttd.jpg" width="200" id="img_preview" />
-                                <input type="file" id="img" autocomplete="family-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300  border-2 rounded-md">
+                                <input type="file" name="img" id="img" autocomplete="family-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300  border-2 rounded-md">
                               </div>
                               <div class="col-span-6 sm:col-span-4">
                               <select name="" id="cate" class="border-gray-300 rounded-md border-2 p-2">
-                                ${data.map(item=>`
+                                ${data
+                                  .map(
+                                    (item) => `
                                   <option value="${item.id}">${item.name}</option>
-                                `).join('')}
+                                `
+                                  )
+                                  .join("")}
                                   
                               </select>
                               </div>
                               <div class="col-span-6 sm:col-span-4">
                                 <label for="description" class="block text-sm font-medium text-gray-700">Price</label>
                                 <input type="text" name="price" id="price"  class=" p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border-2">
+                              </div>
+                            </div>
+                              <div class="col-span-6 sm:col-span-4">
+                                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                                <input type="text" name="desc" id="desc"  class=" p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border-2">
                               </div>
                             </div>
                           </div>
@@ -73,7 +84,7 @@ const AddProductAdmin = {
   },
 
   afterRender() {
-    const formAdd = document.querySelector("#form-add-pro");
+    const formAdd = $("#form-add-pro");
     const imgPro = document.querySelector("#img");
     const img_preview = document.querySelector("#img_preview");
 
@@ -85,32 +96,95 @@ const AddProductAdmin = {
       img_preview.src = URL.createObjectURL(imgPro.files[0]);
     });
 
-    formAdd.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const file = imgPro.files[0];
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", COLUDINARY_PRESET);
-
-      await axios
-        .post(CLOUDINARY_API, formData, {
-          headers: {
-            "Content-Type": "application/form-data",
-          },
-        })
-        .then((response) => {
-          const newPro = {
-            name: document.querySelector("#name").value,
-            cate_id:document.querySelector("#cate").value,
-            img: response.data.url,
-            Price: document.querySelector("#price").value,
-          };
-          add(newPro);
-          toastr.success("Bạn đã thêm thành công !");
-          setTimeout((document.location.href = "/#/admin/listproducts"), 2000);
-        });
+    formAdd.validate({
+      rules: {
+        "name" :{
+          required:true,
+          minlength:5
+        },
+        "img" :{
+          required:true,
+        },
+        "price" :{
+          required:true,
+        },
+        "desc" :{
+          required:true,
+        },
+      },
+      messages: {
+        "name":{
+          required:"Yêu cầu không bỏ trống!",
+          minlength:"Yêu cầu nhập trên 5 ký tự!"
+        },
+        "price":{
+          required:"Yêu cầu không bỏ trống!",
+        },
+        "img":{
+          required:"Yêu cầu không bỏ trống!",
+        },
+        "desc":{
+          required:"Yêu cầu không bỏ trống!",
+        }
+      },
+      submitHandler: () => {
+        console.log("abc");
+        const addProHandler = async ()=>{
+          const file = imgPro.files[0];
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("upload_preset", COLUDINARY_PRESET);
+    
+          await axios
+            .post(CLOUDINARY_API, formData, {
+              headers: {
+                "Content-Type": "application/form-data",
+              },
+            })
+            .then((response) => {
+              const newPro = {
+                name: document.querySelector("#name").value,
+                cate_id:document.querySelector("#cate").value,
+                img: response.data.url,
+                desc:document.querySelector('#desc').value,
+                Price: document.querySelector("#price").value,
+              };
+              add(newPro);
+              toastr.success("Bạn đã thêm thành công !");
+              setTimeout((document.location.href = "/#/admin/listproducts"), 2000);
+            });
+        }
+        addProHandler();
+      },
     });
+
+    // formAdd.addEventListener("submit", async (e) => {
+    //   e.preventDefault();
+
+      // const file = imgPro.files[0];
+      // const formData = new FormData();
+      // formData.append("file", file);
+      // formData.append("upload_preset", COLUDINARY_PRESET);
+
+      // await axios
+      //   .post(CLOUDINARY_API, formData, {
+      //     headers: {
+      //       "Content-Type": "application/form-data",
+      //     },
+      //   })
+      //   .then((response) => {
+      //     const newPro = {
+      //       name: document.querySelector("#name").value,
+      //       cate_id:document.querySelector("#cate").value,
+      //       img: response.data.url,
+      //       desc:document.querySelector('#desc').value,
+      //       Price: document.querySelector("#price").value,
+      //     };
+      //     add(newPro);
+      //     toastr.success("Bạn đã thêm thành công !");
+      //     setTimeout((document.location.href = "/#/admin/listproducts"), 2000);
+      //   });
+    // });
   },
 };
 

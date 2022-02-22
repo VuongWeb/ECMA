@@ -67,20 +67,6 @@
       "cate_id": 2
     },
     {
-      "id": "0tuTPm1",
-      "name": " Bộ Ghép Hình Mixi - Mixi Block SS1 - MixiShop",
-      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645326262/xef4gbp5zqbwgs7k1egy.jpg",
-      "Price": "2500000",
-      "cate_id": 1
-    },
-    {
-      "name": "Lê Văn Vương",
-      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645407475/tulcsx0ex60xsqquvb0k.jpg",
-      "Price": "3000",
-      "id": "VjldFJx",
-      "cate_id": 3
-    },
-    {
       "name": "Đỗ Thị Tuyết Mai",
       "cate": "2",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645421976/zie60bpxwr3xwyn0mvdm.jpg",
@@ -89,18 +75,42 @@
       "cate_id": 2
     },
     {
-      "id": "gRKAIsr",
-      "name": "Thảo quả update 3",
-      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645423109/axj9ghyl7lreporii7dz.png",
-      "Price": "200000",
-      "cate_id": 1
-    },
-    {
       "name": "Đỗ Thị Tuyết Mai",
       "cate_id": 3,
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645501256/e4sa22f56p0x7y0lrbvq.jpg",
       "Price": "50000",
       "id": "ecjt_Ej"
+    },
+    {
+      "id": "mhVCYcd",
+      "name": "Lê Văn Vương",
+      "cate_id": "1",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645521025/asu9q9q5zsbj4zgbukf9.jpg",
+      "Price": "3000"
+    },
+    {
+      "id": "R5wKJWQ",
+      "name": "Lê Văn Vương",
+      "cate_id": "1",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645521322/rms5tutsqkvldf64seyc.jpg",
+      "Price": "120000",
+      "desc": "undefined1"
+    },
+    {
+      "name": "abc",
+      "cate_id": "3",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645521619/dzgq6zjtai5snqncjkni.jpg",
+      "desc": "undefined3",
+      "Price": "50000",
+      "id": "qckZC2j"
+    },
+    {
+      "name": "Lê Văn Vương",
+      "cate_id": "1",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645523951/bqjbimm09hcwxnilcfmt.jpg",
+      "desc": "undefined4",
+      "Price": "20000",
+      "id": "qHa-SIT"
     }
   ],
   "users": [
@@ -165,7 +175,5 @@
       "id": "3"
     }
   ],
-  "order":[
-    
-  ]
+  "order": []
 }
