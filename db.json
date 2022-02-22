@@ -2,8 +2,9 @@
   "pro": [
     {
       "id": "1",
-      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Ao-phong-Mixi-Phong-Stream-scaled.jpg",
       "name": "Áo phông -Tộc Trưởng -abc",
+      "cate_id": 3,
+      "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Ao-phong-Mixi-Phong-Stream-scaled.jpg",
       "Price": "250000"
     },
     {
@@ -11,76 +12,95 @@
       "name": "Áo phông -Tộc Trưởng",
       "Price": "250000",
       "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/ao-phong-mixi-trang-scaled.jpg",
-      "id": "2"
+      "id": "2",
+      "cate_id": 1
     },
     {
       "createdAt": "2022-01-19T07:35:35.945Z",
       "name": "Áo phông Mixi Phòng Stream",
       "Price": "250000",
       "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Ao-phong-Mixi-Phong-Stream-scaled.jpg",
-      "id": "3"
+      "id": "3",
+      "cate_id": 3
     },
     {
       "id": "4",
       "name": "Áo phông -Tộc Trưởng",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645278296/aqlj51f2bosgscw536nk.jpg",
-      "Price": "250000"
+      "Price": "250000",
+      "cate_id": 1
     },
     {
       "createdAt": "2022-01-19T07:35:35.945Z",
       "name": "Áo phông -Tộc Trưởng",
       "Price": "250000",
       "img": "https://shop.mixigaming.com/wp-content/uploads/2021/01/Untitled-Capture1577-scaled.jpg",
-      "id": "5"
+      "id": "5",
+      "cate_id": 1
     },
     {
       "id": "6",
       "name": "Áo phông - Đen -Tộc Trưởng",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282939/twpoxztbcztm1nwxkvr1.jpg",
-      "Price": "250000"
+      "Price": "250000",
+      "cate_id": 2
     },
     {
       "id": "mpoDnBN",
       "name": "Áo phông mixi ",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645278660/sm1dyzaqrlsjrndkvim2.jpg",
-      "Price": "120000"
+      "Price": "120000",
+      "cate_id": 1
     },
     {
       "id": "bFIrnhb",
       "name": "Áo phông -đen Mixi",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282956/sqyt191abrvwsj5zdtpv.jpg",
-      "Price": "120000"
+      "Price": "120000",
+      "cate_id": 2
     },
     {
       "id": "hat9f3N",
       "name": "Lê Văn Vương",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645409413/p6dzvzg43zbhvhg77o3b.jpg",
-      "Price": "120000"
+      "Price": "120000",
+      "cate_id": 2
     },
     {
       "id": "0tuTPm1",
       "name": " Bộ Ghép Hình Mixi - Mixi Block SS1 - MixiShop",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645326262/xef4gbp5zqbwgs7k1egy.jpg",
-      "Price": "2500000"
+      "Price": "2500000",
+      "cate_id": 1
     },
     {
       "name": "Lê Văn Vương",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645407475/tulcsx0ex60xsqquvb0k.jpg",
       "Price": "3000",
-      "id": "VjldFJx"
+      "id": "VjldFJx",
+      "cate_id": 3
     },
     {
       "name": "Đỗ Thị Tuyết Mai",
       "cate": "2",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645421976/zie60bpxwr3xwyn0mvdm.jpg",
       "Price": "50000",
-      "id": "AheY-bD"
+      "id": "AheY-bD",
+      "cate_id": 2
     },
     {
       "id": "gRKAIsr",
       "name": "Thảo quả update 3",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645423109/axj9ghyl7lreporii7dz.png",
-      "Price": "200000"
+      "Price": "200000",
+      "cate_id": 1
+    },
+    {
+      "name": "Đỗ Thị Tuyết Mai",
+      "cate_id": 3,
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645501256/e4sa22f56p0x7y0lrbvq.jpg",
+      "Price": "50000",
+      "id": "ecjt_Ej"
     }
   ],
   "users": [
@@ -134,7 +154,7 @@
   "cates": [
     {
       "id": "1",
-      "name": "Ao Mixi "
+      "name": "Áo  Mixi "
     },
     {
       "id": "2",
@@ -142,7 +162,10 @@
     },
     {
       "name": "Áo ba lỗ ",
-      "id": "QNZvxLS"
+      "id": "3"
     }
+  ],
+  "order":[
+    
   ]
 }

@@ -3,11 +3,18 @@ import { get, update } from "../../api/product";
 import axios from "axios";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
+import { getAll } from "../../api/cate";
 
 const EditProPage = {
   async render(id) {
     const { data } = await get(id);
-    // const result = await response.json();
+    // console.log(data.cate_id)
+    const cates =await (await getAll()).data;
+    // console.log(cates)
+    const cate = cates.filter((item) => item.id !== data.cate_id);
+    console.log(cate)
+    
+  
     return /* html */ `
         ${await HeaderAdmin.render()}
         <header class="bg-white shadow">
@@ -42,6 +49,16 @@ const EditProPage = {
                             }" id="img_preview" width="200"  />
                             <input type="file"  id="img"   autocomplete="given-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md">
                           </div>
+                          <div class="col-span-6 sm:col-span-4">
+                              <select name="" id="cate" class="border-gray-300 rounded-md border-2 p-2">
+                                  ${
+                                    cates.map(cate=> `
+                                    <option value="${cate.id}" >${cate.name}</option>
+                                    `).join('')
+                                  }
+                                  
+                                )
+                              </div>
                           <div class="col-span-6 ">
                             <label for="img" class="block text-sm font-medium text-gray-700">Price</label>
                             <input type="text"  id="price"   value="${
@@ -104,6 +121,7 @@ const EditProPage = {
       update({
         id,
         name: document.querySelector("#title").value,
+        cate_id: document.querySelector("#cate").value,
         img: link_img ? link_img : img_preview.src,
         Price: document.querySelector("#price").value,
       })

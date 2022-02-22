@@ -3,8 +3,11 @@ import { add } from "../api/product";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
 import HeaderAdmin from "./headerAdmin";
+import { getAll } from "../api/cate";
 const AddProductAdmin = {
-  render() {
+  
+  async render() {
+    const {data } = await getAll();
     // console.log(document)
     return /*html*/ `
       ${HeaderAdmin.render()}
@@ -35,9 +38,11 @@ const AddProductAdmin = {
                                 <input type="file" id="img" autocomplete="family-name" class="p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300  border-2 rounded-md">
                               </div>
                               <div class="col-span-6 sm:col-span-4">
-                              <select name="" id="cate">
-                                  <option value="1">Áo</option>
-                                  <option value="2">Đồ lưu niệm</option>
+                              <select name="" id="cate" class="border-gray-300 rounded-md border-2 p-2">
+                                ${data.map(item=>`
+                                  <option value="${item.id}">${item.name}</option>
+                                `).join('')}
+                                  
                               </select>
                               </div>
                               <div class="col-span-6 sm:col-span-4">
@@ -97,7 +102,7 @@ const AddProductAdmin = {
         .then((response) => {
           const newPro = {
             name: document.querySelector("#name").value,
-            cate:document.querySelector("#cate").value,
+            cate_id:document.querySelector("#cate").value,
             img: response.data.url,
             Price: document.querySelector("#price").value,
           };
