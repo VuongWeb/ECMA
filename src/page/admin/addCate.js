@@ -1,8 +1,11 @@
 import { add } from "../../api/cate";
 import HeaderAdmin from "../../components/headerAdmin";
-import { $ } from "../../utils";
+// import { $ } from "../../utils";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
+import $ from "jquery";
+import validate from "jquery-validation";
+
 const AddCate = {
   render() {
     return `
@@ -51,10 +54,10 @@ const AddCate = {
         `;
   },
   afterRender() {
-    const formAdd = $("#form-add-cate");
+    const formAdd = document.querySelector("#form-add-cate");
     formAdd.addEventListener("submit", (e) => {
       e.preventDefault();
-      add({ name: $("#name").value });
+      add({ name: document.querySelector("#name").value });
       toastr.success('Thêm thành công!');
       setTimeout((document.location.href = "/admin/listcates"), 2000);
     });

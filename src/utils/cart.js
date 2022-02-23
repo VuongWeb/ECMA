@@ -45,6 +45,4 @@ export const removeCart = (id, callBack) => {
 
 export const numberFormat = new Intl.NumberFormat("en");
 
-export const Number = () => {
-  
-};
+

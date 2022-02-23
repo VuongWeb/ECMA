@@ -3,13 +3,13 @@ import { add } from "../api/product";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
 import HeaderAdmin from "./headerAdmin";
-import { getAll } from "../api/cate";
+import { getCateAll } from "../api/cate";
 import $ from "jquery";
 import validate from "jquery-validation";
 
 const AddProductAdmin = {
   async render() {
-    const { data } = await getAll();
+    const { data } = await getCateAll();
     // console.log(document)
     return /*html*/ `
       ${HeaderAdmin.render()}

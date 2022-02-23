@@ -1,10 +1,10 @@
-import { getAll, remove } from "../../api/cate";
+import { getCateAll, remove } from "../../api/cate";
 import HeaderAdmin from "../../components/headerAdmin";
 import { reRender } from "../../utils/reRender";
 
 const ListCate = {
   async render() {
-    const { data } = await getAll();
+    const { data } = await getCateAll();
     console.log(data);
     return `
             ${await HeaderAdmin.render()}

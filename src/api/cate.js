@@ -1,11 +1,11 @@
 import instance from "./instance";
 
-export const getAll = () =>{
+export const getCateAll = () =>{
     const url ="/cates";
     return instance.get(url);
 }
 
-export const get = (id) =>{
+export const getCate = (id) =>{
     const url =`/cates/${id}`;
     return instance.get(url);
 }
