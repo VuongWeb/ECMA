@@ -1,4 +1,4 @@
-import { get, update } from "../../api/cate";
+import { getCate, update } from "../../api/cate";
 import HeaderAdmin from "../../components/headerAdmin";
 import { $ } from "../../utils";
 import toastr from "toastr";

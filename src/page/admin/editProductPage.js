@@ -3,16 +3,16 @@ import { get, update } from "../../api/product";
 import axios from "axios";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
-import { getAll } from "../../api/cate";
+import { getCateAll } from "../../api/cate";
 
 const EditProPage = {
   async render(id) {
     const { data } = await get(id);
     // console.log(data.cate_id)
-    const cates =await (await getAll()).data;
+    const cates =await (await getCateAll()).data;
     // console.log(cates)
     const cate = cates.filter((item) => item.id !== data.cateId);
-    console.log(cate)
+    // console.log(cate)
     
   
     return /* html */ `
