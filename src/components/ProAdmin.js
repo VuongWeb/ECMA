@@ -1,6 +1,7 @@
 // import { listPost } from "../data";
 
-import { getAll,paginate,remove } from "../api/product";
+import { getAll, paginate, remove } from "../api/product";
+import { $ } from "../utils";
 import { reRender } from "../utils/reRender";
 
 const ProAdmin = {
@@ -8,10 +9,14 @@ const ProAdmin = {
     const { data } = await getAll();
     return /*html*/ `
         <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">
           <h1 class="text-3xl font-bold text-gray-900">
             Danh sách sản phẩm
           </h1>
+          <form id="form-search">
+          <label class="text-md font-[500]">Tìm kiếm sản phẩm</label>
+            <input type="text" class="border-2 rounded outline-none p-1" id="search-products" placeholder="Tìm kiếm">
+          </form>
         </div>
       </header>
       <main>
@@ -42,54 +47,57 @@ const ProAdmin = {
                                 Xóa
                               </th>
                           </thead>
-                          <tbody class="bg-white divide-y divide-gray-200">
-                            ${data
-                              .map((pro, index) => {
-                                return /*html */ `
-                                <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                  <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-10 w-10">
-                                      ${index + 1}
-                                    </div>
+                          <tbody class="bg-white divide-y divide-gray-200" id="products-item">
+                          ${data
+                            .map((pro, index) => {
+                              return /*html */ `
+                              <tr>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                  <div class="flex-shrink-0 h-10 w-10">
+                                    ${index + 1}
                                   </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                  <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-10 w-10">
-                                      <img class="h-10 w-10 rounded-full" src="${
-                                        pro.img
-                                      }" alt="">
-                                    </div>
+                                </div>
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                  <div class="flex-shrink-0 h-10 w-10">
+                                    <img class="h-10 w-10 rounded-full" src="${
+                                      pro.img
+                                    }" alt="">
                                   </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                  <div class="text-sm text-gray-900">${pro.name}</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                  <a href="/admin/editproduct/${pro.id}">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                </svg></a>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                  <button data-id=${pro.id} class="btns">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
-                                    </svg>
-                                  </button>
-                                </td>
-                              </tr>
-                                `;
-                              })
-                              .join("")}
+                                </div>
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">${
+                                  pro.name
+                                }</div>
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <a href="/admin/editproduct/${pro.id}">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                              </svg></a>
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <button data-id=${pro.id} class="btns">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
+                                  </svg>
+                                </button>
+                              </td>
+                            </tr>
+                              `;
+                            })
+                            .join("")}
+                          
                           </tbody>
                         </table>
-                              <ul class="flex mx-auto">
-                                <li class="p-3 bg-[#03778e] text-white mx-3"><a href="#" id="">1</a></li>
-                                <li class="p-3 bg-[#03778e] text-white mx-3"><a href="#" id="">2</a></li>
-                                <li class="p-3 bg-[#03778e] text-white mx-3"><a href="#" id="">3</a></li>
-                              </ul>
+                        <ul class="flex text-center">
+                              <li class="p-2 rounded mx-2 bg-[#ccc]"><a>1</a></li>
+                              <li class="p-2 rounded mx-2 bg-[#ccc]"><a>2</a></li>
+                              <li class="p-2 rounded mx-2 bg-[#ccc]"><a>3</a></li>
+                          </ul>
                       </div>
                       <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <a href="/admin/addproduct">
@@ -108,22 +116,84 @@ const ProAdmin = {
     </div>
         `;
   },
-  afterRender() {
+  async afterRender() {
+    const data = await getAll();
+    // const paginate = $("#paginate");
+    // let i=0;
+    // const curent_page = data.length / 2;
+    // Math.ceil(curent_page);
+    // paginate.innerHTML =
 
+    const searchProduct = $("#search-products");
+    const productitem = $("#products-item");
 
-    const btns = document.querySelectorAll('.btns');
-    btns.forEach(btn =>{
+    searchProduct.addEventListener("keyup", (e) => {
+      e.preventDefault();
+
+      let result = data.data.filter((item) => {
+        return item.name.includes(searchProduct.value);
+      });
+
+      let products = "";
+
+      if (result.length == 0) {
+        products="không có sản phẩm nào !";
+      }else{
+        products=result.map((pro,index)=>`
+        <tr>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <div class="flex items-center">
+            <div class="flex-shrink-0 h-10 w-10">
+              ${index + 1}
+            </div>
+          </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <div class="flex items-center">
+            <div class="flex-shrink-0 h-10 w-10">
+              <img class="h-10 w-10 rounded-full" src="${
+                pro.img
+              }" alt="">
+            </div>
+          </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <div class="text-sm text-gray-900">${
+            pro.name
+          }</div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <a href="/admin/editproduct/${pro.id}">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        </svg></a>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <button data-id=${pro.id} class="btns">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
+            </svg>
+          </button>
+        </td>
+      </tr>
+        `).join('')
+      }
+      productitem.innerHTML=products;
+    });
+
+    const btns = document.querySelectorAll(".btns");
+    btns.forEach((btn) => {
       const id = btn.dataset.id;
-      btn.addEventListener('click',()=>{
-        const confirm = window.confirm('bạn chắc chắn xóa k ?');
-        if(confirm){
-          remove(id).then(()=>{
-            reRender(ProAdmin,"#app")
-          })
+      btn.addEventListener("click", () => {
+        const confirm = window.confirm("bạn chắc chắn xóa k ?");
+        if (confirm) {
+          remove(id).then(() => {
+            reRender(ProAdmin, "#app");
+          });
         }
-      })
-    })
-  }
+      });
+    });
+  },
 };
 
 export default ProAdmin;
