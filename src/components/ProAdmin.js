@@ -93,10 +93,10 @@ const ProAdmin = {
                           
                           </tbody>
                         </table>
-                        <ul class="flex text-center">
-                              <li class="p-2 rounded mx-2 bg-[#ccc]"><a>1</a></li>
-                              <li class="p-2 rounded mx-2 bg-[#ccc]"><a>2</a></li>
-                              <li class="p-2 rounded mx-2 bg-[#ccc]"><a>3</a></li>
+                        <ul class="flex text-center" id="paginate">
+                              <li class="p-2 rounded mx-2 bg-[#ccc]"><a href="/#/admin/">1</a></li>
+                              <li class="p-2 rounded mx-2 bg-[#ccc]"><a href="/#/admin/">2</a></li>
+                              <li class="p-2 rounded mx-2 bg-[#ccc]"><a href="/#/admin/">3</a></li>
                           </ul>
                       </div>
                       <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -118,15 +118,18 @@ const ProAdmin = {
   },
   async afterRender() {
     const data = await getAll();
-    // const paginate = $("#paginate");
-    // let i=0;
-    // const curent_page = data.length / 2;
-    // Math.ceil(curent_page);
-    // paginate.innerHTML =
+    //paginate
+    const paginate = $('#paginate');
+    const limit =8;
+    const page = Math.ceil(data.data.length / limit) 
+    // console.log(page)
+    // paginate.innerHTML= for( let i =0 ; i< page;i++){
 
+    // }
+ //search
     const searchProduct = $("#search-products");
     const productitem = $("#products-item");
-
+   
     searchProduct.addEventListener("keyup", (e) => {
       e.preventDefault();
 
@@ -137,9 +140,11 @@ const ProAdmin = {
       let products = "";
 
       if (result.length == 0) {
-        products="không có sản phẩm nào !";
-      }else{
-        products=result.map((pro,index)=>`
+        products = "không có sản phẩm nào !";
+      } else {
+        products = result
+          .map(
+            (pro, index) => `
         <tr>
         <td class="px-6 py-4 whitespace-nowrap">
           <div class="flex items-center">
@@ -151,16 +156,12 @@ const ProAdmin = {
         <td class="px-6 py-4 whitespace-nowrap">
           <div class="flex items-center">
             <div class="flex-shrink-0 h-10 w-10">
-              <img class="h-10 w-10 rounded-full" src="${
-                pro.img
-              }" alt="">
+              <img class="h-10 w-10 rounded-full" src="${pro.img}" alt="">
             </div>
           </div>
         </td>
         <td class="px-6 py-4 whitespace-nowrap">
-          <div class="text-sm text-gray-900">${
-            pro.name
-          }</div>
+          <div class="text-sm text-gray-900">${pro.name}</div>
         </td>
         <td class="px-6 py-4 whitespace-nowrap">
           <a href="/admin/editproduct/${pro.id}">
@@ -176,11 +177,13 @@ const ProAdmin = {
           </button>
         </td>
       </tr>
-        `).join('')
+        `
+          )
+          .join("");
       }
-      productitem.innerHTML=products;
+      productitem.innerHTML = products;
     });
-
+    //delete products
     const btns = document.querySelectorAll(".btns");
     btns.forEach((btn) => {
       const id = btn.dataset.id;

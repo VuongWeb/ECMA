@@ -1,6 +1,6 @@
 import Header from "../components/header";
 import { numberFormat } from "../utils/cart";
-import { getCateAll } from "../api/cate";
+import { getCate, getCateAll } from "../api/cate";
 import { getAll } from "../api/product";
 
 const CateProductsPage = {
@@ -9,6 +9,8 @@ const CateProductsPage = {
     const listCate = (await getCateAll()).data;
     const products = (await getAll()).data;
     const productsCate = products.filter((item) => +id === +item.cateId);
+    const cate =(await getCate(id)).data;
+    console.log(cate)
     
     return `
         <h1 class="text-center p-8 text-2xl font-medium">Danh mục sản phẩm</h1>
@@ -24,8 +26,8 @@ const CateProductsPage = {
                   .join("")}                     
                 </ul>
         </div>
+        <h1 class="text-center p-8 text-4xl font-medium">${cate.name}</h1>
         <div class="grid grid-cols-4 gap-12 mx-20 mb-20">
-        
         ${
             productsCate.map((pro) => /*html*/`
                 <div class="col-product box-border text-center relative">

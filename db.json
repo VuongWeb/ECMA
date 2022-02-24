@@ -51,14 +51,15 @@
     {
       "id": "bFIrnhb",
       "name": "Áo phông -đen Mixi",
+      "cateId": "1",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282956/sqyt191abrvwsj5zdtpv.jpg",
       "Price": "120000",
-      "cateId": 2
+      "desc": "rẻ đẹp thoáng mát "
     },
     {
       "id": "hat9f3N",
       "name": "Xếp Hình Lego - Mixi",
-      "cateId": "1",
+      "cateId": "2",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645409413/p6dzvzg43zbhvhg77o3b.jpg",
       "Price": "120000",
       "desc": "rẻ đẹp thoáng mát "
@@ -98,7 +99,7 @@
     {
       "id": "qHa-SIT",
       "name": "Áo  3 lỗ ReFund",
-      "cateId": "1",
+      "cateId": "3",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645590551/qgu9kulft2ntcjii05z5.jpg",
       "Price": "20000",
       "desc": "rẻ đẹp thoáng mát "
@@ -110,6 +111,22 @@
       "desc": "rẻ đẹp thoáng mát ",
       "Price": "120000",
       "id": "Q9sJvy1"
+    },
+    {
+      "name": "Ví Mi-xi",
+      "cateId": "2",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645671628/oje5gpxxzais1mmmss0k.jpg",
+      "desc": "rẻ đẹp thoáng mát ",
+      "Price": "2500000",
+      "id": "_UfSc0N"
+    },
+    {
+      "name": "Lót chuột Mi-xi",
+      "cateId": "2",
+      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645671733/acaps3vi3d3zyoxyytmj.jpg",
+      "desc": "rẻ đẹp thoáng mát ",
+      "Price": "120000",
+      "id": "DLygGxW"
     }
   ],
   "users": [
@@ -157,7 +174,8 @@
       "id": "1",
       "name": " Bộ Ghép Hình Mixi - Mixi Block SS1 - MixiShop",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645326262/xef4gbp5zqbwgs7k1egy.jpg",
-      "Price": "2500000"
+      "Price": "2500000",
+      "userId": "2500000"
     }
   ],
   "cates": [
@@ -174,5 +192,11 @@
       "id": 3
     }
   ],
-  "order": []
+  "order": [
+    {
+      "id": "1",
+      "userId": "2",
+      "productId": "4"
+    }
+  ]
 }

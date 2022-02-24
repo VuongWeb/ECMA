@@ -1,8 +1,11 @@
 import Header from "../components/header";
+import { numberFormat } from "../utils/cart";
 
-const CheckOut={
-    render(){
-        return `
+const CheckOut = {
+  render() {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    // console.log(cart)
+    return `
         <h2 class="text-center text-2xl p-8"><span>SHOPPING CART</span> > <span>CHECK OUT</span></h2>
             <div class="container text-center justify-between flex w-5/6 mx-auto py-8">  
             <div class="content m-8 w-2/3">
@@ -48,10 +51,15 @@ const CheckOut={
                         </tr>
                     </thead>
                     <tbody>
+                    ${cart.map(
+                      (item) => `
                         <tr class="border-b-2 border-[#ccc] mb-8">
-                            <td class="font-[500] p-4  ">abv</td>
-                            <td class="p-4">20đ</td>
+                            <td class="font-[500] p-4 ">${item.name}</td>
+                            <td class="p-4">${numberFormat.format(item.quantity*item.Price)}</td>
                         </tr>
+                    `
+                    )}
+                        
                     </tbody>
                     <tfoot>
                         <tr>
@@ -71,10 +79,19 @@ const CheckOut={
          </form>
             </div>
         </div>  
-        `
-    },
-    afterRender(){
-        Header.afterRender();
+        `;
+  },
+  afterRender() {
+    Header.afterRender();
+    let total =0;
+    const totalPrice =document.querySelector('#total');
+    if(localStorage.getItem('cart')){
+         const cart = JSON.parse(localStorage.getItem("cart"));
+    cart.forEach(item => {
+        total+= item.Price * item.quantity;
+        totalPrice.innerHTML= numberFormat.format(total);
+    });
     }
-}
+  },
+};
 export default CheckOut;
