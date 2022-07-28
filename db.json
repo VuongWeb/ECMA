@@ -33,26 +33,10 @@
       "desc": "rẻ đẹp thoáng mát "
     },
     {
-      "id": "6",
-      "name": "Áo phông - Đen -Tộc Trưởng",
-      "cateId": "1",
-      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282939/twpoxztbcztm1nwxkvr1.jpg",
-      "Price": "250000",
-      "desc": "rẻ đẹp thoáng mát "
-    },
-    {
       "id": "mpoDnBN",
       "name": "Áo phông mixi ",
       "cateId": "1",
       "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645590357/rdwuwrdnmxj0yghezcoq.jpg",
-      "Price": "120000",
-      "desc": "rẻ đẹp thoáng mát "
-    },
-    {
-      "id": "bFIrnhb",
-      "name": "Áo phông -đen Mixi",
-      "cateId": "1",
-      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645282956/sqyt191abrvwsj5zdtpv.jpg",
       "Price": "120000",
       "desc": "rẻ đẹp thoáng mát "
     },
@@ -119,14 +103,6 @@
       "desc": "rẻ đẹp thoáng mát ",
       "Price": "2500000",
       "id": "_UfSc0N"
-    },
-    {
-      "name": "Lót chuột Mi-xi",
-      "cateId": "2",
-      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645671733/acaps3vi3d3zyoxyytmj.jpg",
-      "desc": "rẻ đẹp thoáng mát ",
-      "Price": "120000",
-      "id": "DLygGxW"
     }
   ],
   "users": [
@@ -169,15 +145,7 @@
       "id": "1"
     }
   ],
-  "cart": [
-    {
-      "id": "1",
-      "name": " Bộ Ghép Hình Mixi - Mixi Block SS1 - MixiShop",
-      "img": "http://res.cloudinary.com/dkiw9eaeh/image/upload/v1645326262/xef4gbp5zqbwgs7k1egy.jpg",
-      "Price": "2500000",
-      "userId": "2500000"
-    }
-  ],
+  "cart": [],
   "cates": [
     {
       "id": 1,
@@ -192,11 +160,5 @@
       "id": 3
     }
   ],
-  "order": [
-    {
-      "id": "1",
-      "userId": "2",
-      "productId": "4"
-    }
-  ]
+  "order": []
 }
